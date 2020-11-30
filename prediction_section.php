@@ -88,6 +88,9 @@
             <h1>
                 All predictions for this car
             </h1>
+
+            <a href="profile1.php"> <h3> Go to Profile </h3> </a>
+
             <div class='queries' >
 
                 <div class="query">

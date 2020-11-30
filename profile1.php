@@ -46,10 +46,10 @@
         
         <div class='left-container' style="overflow-y:scroll;">
             <ul>
-                <li><a href="#"> INFO </a></li>
-                <li><a href="#"> INFO </a></li>
-                <li><a href="#"> INFO </a></li>
-                <li><a href="#"> INFO </a></li>
+                <li><a href="#"> Profile, Notifications </a></li>
+                <li><a href="#"> My Cars </a></li>
+                <li><a href="#"> Predict </a></li>
+                <li><a href="#"> Edit Profile </a></li>
             </ul>
         </div>
         
