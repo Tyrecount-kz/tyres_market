@@ -32,9 +32,6 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="arsha/assets/vendor/bootstrap/css/bootstrap.min.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
-    
     <!-- Template Main CSS File -->
     <link href="views/style/prediction.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
     <link href="views/style/php_log.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
@@ -42,32 +39,87 @@
 </head>
 
 <body>
+
+    <?php require_once('header.php') ?>
+
     <div class='signup-container'>
-        <div class='left-container'>
+        <div class='left-container' style="overflow-y:scroll;">
             <h1>
-                All predictions for current car
+                All predictions for this car
             </h1>
-            <div class='puppy'>
-                <h3> There will be your queries </h3>
-            <!-- <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png'> -->
+            <div class='queries' >
+
+                <div class="query">
+                    <header>
+                        <h1>Result</h1>    
+                    </header>
+                    <footer>
+                        <div class='set'>
+                            <!-- <button id='back'>Back</button> -->
+                            5000$
+                            <input id="submit" type="submit" name="submit" value="Modify">
+                        </div>
+                    </footer>
+                </div>
+
+                <div class="query">
+                    <header>
+                        <h1>Result</h1>    
+                    </header>
+                    <footer>
+                        <div class='set'>
+                            <!-- <button id='back'>Back</button> -->
+                            5000$
+                            <input id="submit" type="submit" name="submit" value="Modify">
+                        </div>
+                    </footer>
+                </div>
+
+
+                <div class="query">
+                    <header>
+                        <h1>Result</h1>    
+                    </header>
+                    <footer>
+                        <div class='set'>
+                            <!-- <button id='back'>Back</button> -->
+                            5000$
+                            <input id="submit" type="submit" name="submit" value="Modify">
+                        </div>
+                    </footer>
+                </div>
+
+
+                <div class="query">
+                    <header>
+                        <h1>Result</h1>    
+                    </header>
+                    <footer>
+                        <div class='set'>
+                            <!-- <button id='back'>Back</button> -->
+                            5000$
+                            <input id="submit" type="submit" name="submit" value="Modify">
+                        </div>
+                    </footer>
+                </div>
+
+
+                <!-- <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png'> -->
             </div>
         </div>
         <div class='right-container'>
-            
-            <form action="prediction_result.php" method="post" name="form" id="form" >
-                <header>
+            <header>
                     <h1>Result</h1>
-                    
-                </header>
-                <footer>
+            </header>
+            <footer>
+                <form action="prediction_result.php" method="post" name="form" id="form" >                 
                     <div class='set'>
                         <!-- <button id='back'>Back</button> -->
                         <h3> Check for different configurations ? </h3>
                         <input id="submit" type="submit" name="submit" value="Modify">
                     </div>
-                </footer>
-            </form>
-       
+                </form>
+            </footer>
         </div>
     </div>
 

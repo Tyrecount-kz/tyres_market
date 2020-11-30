@@ -12,18 +12,27 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>user profile bio graph and total sales - Bootdey.com</title>
+    
+    <title>Profile</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link href="arsha/assets/vendor/bootstrap/css/bootstrap.min.css?ver=<?php echo rand(111,999)?>" rel="stylesheet"> -->
+    
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="views/style/php_log.css?ver=<?php echo rand(111,999)?>" rel="stylesheet"> 
 
     <!-- <link rel="stylesheet" type="text/css" href="views/style/form_style.css?ver=<?php echo rand(111,999)?>"> -->
-    <link rel="stylesheet" type="text/css" href="views/style/profile.css?ver=<?php echo rand(111,999)?>"> 
+    <link rel="stylesheet" type="text/css" href="views/style/profile.css?ver=<?php echo rand(111,999)?>">
+    
 
 </head>
 
 <body>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     
+    <?php require_once('header.php') ?>
+
     <div class="container bootstrap snippets bootdey">
         <div class="row">
             <div class="profile-nav col-md-3">
@@ -43,30 +52,10 @@
                 </div>
             </div>
             <div class="profile-info col-md-9">
-                <div class="panel">
-                   <div class="bio-graph-heading">
-                        Add car details to predict it's price 
-                        <i> based on data from <a href="https://kolesa.kz/" target="_blank"> kolesa.kz </a> </i> 
-                    </div>
-                    <!-- <form action="predict.php" method="post" name="form" id="form" > -->
-                    <form class="car_details_form">
-                        <div class="car_details_form_row">
-                            <input name="first_name" type="text" value="" placeholder="First Name" id="first_name" />
-                            <input name="last_name" type="text" value="" placeholder="Last Name" id="last_name" />
-                            <input name="city" type="text" value="" placeholder="city" id="city" />
-                        </div>
-                        <input name="phone" type="phone" value="" placeholder="phone" id="phone" />
-                        <input name="email" type="text" value="" placeholder="Email" id="email" />
-                        <input name="password" type="password" value="" placeholder="Password" id="password" />
-                    
-                        <input id="submit" type="submit" name="submit" value="Predict" class="btn indigo_item pull-right">
-                    </form>
-
-                </div>
 
                 <div class="panel">
                     <div class="bio-graph-heading">
-                        Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.
+                        Aliquam ac magna metus. Nam sed arcu non 
                     </div>
                     <div class="panel-body bio-graph-info">
                         <h1>Bio Graph</h1>
