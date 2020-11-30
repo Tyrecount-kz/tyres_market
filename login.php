@@ -34,7 +34,7 @@
                 $_SESSION['user'] = $email;
                 echo $row['FIRST_NAME'];
                 
-                header('location: index.php');
+                header('location: profile.php');
             }
             else {
                 echo '<p id="failed">Login Failed !</p>';

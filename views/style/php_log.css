@@ -1,0 +1,17 @@
+.php_log {
+    position: absolute;
+    left: 32px;
+    top: 32px;
+    min-width: 64px;
+    /* max-width: 256px; */
+    min-height: 64px;
+    background-color: white;
+    color: crimson;
+    padding: 16px;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
