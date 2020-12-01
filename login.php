@@ -31,7 +31,7 @@
 
             
             if($email === $row['EMAIL'] && $password === $row['PASSWORD']) {
-                $_SESSION['user'] = $email;
+                $_SESSION['user'] = $row;
                 echo $row['FIRST_NAME'];
                 
                 header('location: profile.php');

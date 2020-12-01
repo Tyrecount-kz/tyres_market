@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Arsha Bootstrap Template - Index</title>
+    <title>TyresKZ</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -134,7 +134,11 @@
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
             <div class="nav-title">
-                JoGeek
+                <a href="profile.php">
+                    <?php
+                        echo $_SESSION['user']["EMAIL"];
+                    ?>
+                </a>
             </div>
         </div>
         <div class="nav-btn">

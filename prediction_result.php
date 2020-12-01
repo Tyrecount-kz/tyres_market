@@ -43,73 +43,7 @@
     <?php require_once('header.php') ?>
 
     <div class='signup-container'>
-        <div class='left-container' style="overflow-y:scroll;">
-            <h1>
-                All predictions for this car
-            </h1>
-
-            <a href="profile1.php"> <h3> Go to Profile </h3> </a>
-           
-            <div class='queries' >
-
-                <div class="query">
-                    <header>
-                        <h1>Result</h1>    
-                    </header>
-                    <footer>
-                        <div class='set'>
-                            <!-- <button id='back'>Back</button> -->
-                            5000$
-                            <input id="submit" type="submit" name="submit" value="Modify">
-                        </div>
-                    </footer>
-                </div>
-
-                <div class="query">
-                    <header>
-                        <h1>Result</h1>    
-                    </header>
-                    <footer>
-                        <div class='set'>
-                            <!-- <button id='back'>Back</button> -->
-                            5000$
-                            <input id="submit" type="submit" name="submit" value="Modify">
-                        </div>
-                    </footer>
-                </div>
-
-
-                <div class="query">
-                    <header>
-                        <h1>Result</h1>    
-                    </header>
-                    <footer>
-                        <div class='set'>
-                            <!-- <button id='back'>Back</button> -->
-                            5000$
-                            <input id="submit" type="submit" name="submit" value="Modify">
-                        </div>
-                    </footer>
-                </div>
-
-
-                <div class="query">
-                    <header>
-                        <h1>Result</h1>    
-                    </header>
-                    <footer>
-                        <div class='set'>
-                            <!-- <button id='back'>Back</button> -->
-                            5000$
-                            <input id="submit" type="submit" name="submit" value="Modify">
-                        </div>
-                    </footer>
-                </div>
-
-
-                <!-- <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png'> -->
-            </div>
-        </div>
+        <?php require_once('left_container_queries.php');  ?>
         <div class='right-container'>
             <header>
                     <h1>Result</h1>

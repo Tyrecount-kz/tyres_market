@@ -184,7 +184,7 @@ body {
 .right-container label,
 .right-container input,
 .right-container .pets-photo {
-    width: 176px;
+    min-width: 128px;
 }
 
 .right-container .pets-photo {
@@ -275,13 +275,13 @@ body {
     border: 1px solid transparent;
     border-radius: 2px;
     display: inline-block;
-    height: 26px;
+    min-height: 26px;
     line-height: 26px;
     margin: 0;
-    padding: 0;
+    padding: 2px;
     text-align: center;
     transition: .2s all ease-in-out;
-    width: 80px;
+    min-width: 80px;
 }
 
 .radio-container input[type="radio"] {

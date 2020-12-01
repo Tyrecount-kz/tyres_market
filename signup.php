@@ -22,12 +22,12 @@
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $phone = $_POST['phone'];
-            $city = $_POST['city'];
+            // $city = $_POST['city'];
 
             include 'connect.php';
         
             // query
-            $query = "INSERT INTO USERS VALUES(default, '$first_name','$last_name','$city','$phone','$email','$password')";
+            $query = "INSERT INTO USERS VALUES(default, '$first_name','$last_name','$phone','$email','$password')";
             // echo $query;
 
             $stid = oci_parse($conn, $query);
@@ -71,7 +71,7 @@
                 <h1>Tyres KZ <br> Signup</h1>
                 <input name="first_name" type="text" value="" placeholder="First Name" id="first_name" />
                 <input name="last_name" type="text" value="" placeholder="Last Name" id="last_name" />
-                <input name="city" type="text" value="" placeholder="city" id="city" />
+                <!-- <input name="city" type="text" value="" placeholder="city" id="city" /> -->
                 <input name="phone" type="phone" value="" placeholder="phone" id="phone" />
                 <input name="email" type="text" value="" placeholder="Email" id="email" />
                 <input name="password" type="password" value="" placeholder="Password" id="password" />

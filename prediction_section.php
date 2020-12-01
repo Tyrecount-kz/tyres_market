@@ -10,8 +10,14 @@
     {
         echo '<div class="php_log"> to true </div>';
         $predicted = true;
-        // predict();
-        header('location: prediction_result.php');
+        
+        echo '<div class="php_log">';
+
+            var_dump( $_POST );
+        
+        echo '</div>';
+        predict();
+        // header('location: prediction_result.php');
 
     }
 
@@ -28,11 +34,13 @@
             // encrypt password
             $password = $_POST['password'];
             $password = md5($password);
-            
-            $first_name = $_POST['first_name'];
-            $last_name = $_POST['last_name'];
-            $phone = $_POST['phone'];
-            $city = $_POST['city'];
+           
+        
+
+            // $first_name = $_POST['first_name'];
+            // $last_name = $_POST['last_name'];
+            // $phone = $_POST['phone'];
+            // $city = $_POST['city'];
 
             include 'connect.php';
         
@@ -84,122 +92,69 @@
     <?php require_once('header.php');  ?>
 
     <div class='signup-container'>
-        <div class='left-container' style="overflow-y:scroll;">
-            <h1>
-                All predictions for this car
-            </h1>
-
-            <a href="profile1.php"> <h3> Go to Profile </h3> </a>
-
-            <div class='queries' >
-
-                <div class="query">
-                    <header>
-                        <h1>Result</h1>    
-                    </header>
-                    <footer>
-                        <div class='set'>
-                            <!-- <button id='back'>Back</button> -->
-                            5000$
-                            <input id="submit" type="submit" name="submit" value="Modify">
-                        </div>
-                    </footer>
-                </div>
-
-                <div class="query">
-                    <header>
-                        <h1>Result</h1>    
-                    </header>
-                    <footer>
-                        <div class='set'>
-                            <!-- <button id='back'>Back</button> -->
-                            5000$
-                            <input id="submit" type="submit" name="submit" value="Modify">
-                        </div>
-                    </footer>
-                </div>
-
-
-                <div class="query">
-                    <header>
-                        <h1>Result</h1>    
-                    </header>
-                    <footer>
-                        <div class='set'>
-                            <!-- <button id='back'>Back</button> -->
-                            5000$
-                            <input id="submit" type="submit" name="submit" value="Modify">
-                        </div>
-                    </footer>
-                </div>
-
-
-                <div class="query">
-                    <header>
-                        <h1>Result</h1>    
-                    </header>
-                    <footer>
-                        <div class='set'>
-                            <!-- <button id='back'>Back</button> -->
-                            5000$
-                            <input id="submit" type="submit" name="submit" value="Modify">
-                        </div>
-                    </footer>
-                </div>
-
-
-                <!-- <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png'> -->
-            </div>
-        </div>
+        <?php require_once('left_container_queries.php') ?>
         <form action="prediction_section.php" method="post" name="form" id="form" >
             <div class='right-container'>
                     <header>
                         <h1>Yay, let's predict your car's price</h1>
                         <div class='set'>
                             <div class='pets-name'>
-                            <label for='pets-name'>Name</label>
-                            <input id='pets-name' placeholder="Pet's name" type='text'>
+                                <label for='car_model'>Car Model</label>
+                                <input required="required" id='car_model' name="car_model" placeholder="Car Model" type='text'>
                             </div>
                         </div>
                         <div class='set'>
                             <div class='pets-breed'>
-                            <label for='pets-breed'>Breed</label>
-                            <input id='pets-breed' placeholder="Pet's breed" type='text'>
+                                <label for='shell'>shell</label>
+                                <input required="required" id='shell' name="shell" placeholder='shell' type='text'>                            
                             </div>
                             <div class='pets-birthday'>
-                            <label for='pets-birthday'>Birthday</label>
-                            <input id='pets-birthday' placeholder='MM/DD/YYYY' type='text'>
+                                <label for='release_year'>release_year</label>
+                                <input required="required" id='release_year' name="release_year" placeholder="release_year" type='text'>
+                            </div>
+                            
+                            <div class='pets-breed'>
+                                <label for='mileage'>mileage</label>
+                                <input required="required" id='mileage' name ="mileage" placeholder='mileage' type='text'>                            
+                            </div>
+
+                        </div>
+
+                        <div class='set'>
+                            <div class='pets-birthday'>
+                                <label for='rudder'>rudder</label>
+                                <input required="required" id='rudder' name="rudder" placeholder="rudder" type='text'>
+                            </div>
+                            
+                            <div class='pets-breed'>
+                                <label for='color'>color</label>
+                                <input required="required" id='color' name="color" placeholder='color' type='text'>                            
+                            </div>
+                            <div class='pets-birthday'>
+                                <label for='gear'>gear</label>
+                                <input required="required" id='gear' name="gear" placeholder="gear" type='text'>
                             </div>
                         </div>
+
                         <div class='set'>
-                            <div class='pets-gender'>
-                            <label for='pet-gender-female'>Gender</label>
-                            <div class='radio-container'>
-                                <input checked='' id='pet-gender-female' name='pet-gender' type='radio' value='female'>
-                                <label for='pet-gender-female'>Female</label>
-                                <input id='pet-gender-male' name='pet-gender' type='radio' value='male'>
-                                <label for='pet-gender-male'>Male</label>
+                            <div class='pets-breed'>
+                                <label for='engine_volume'>engine_volume</label>
+                                <input required="required" id='engine_volume' name='engine_volume' placeholder='engine_volume' type='text'>                            
                             </div>
-                            </div>
-                            <div class='pets-spayed-neutered'>
-                            <label for='pet-spayed'>Spayed or Neutered</label>
-                            <div class='radio-container'>
-                                <input checked='' id='pet-spayed' name='spayed-neutered' type='radio' value='spayed'>
-                                <label for='pet-spayed'>Spayed</label>
-                                <input id='pet-neutered' name='spayed-neutered' type='radio' value='neutered'>
-                                <label for='pet-neutered'>Neutered</label>
-                            </div>
+                            <div class='pets-birthday'>
+                                <label for='custom_clear'>custom_clear</label>
+                                <input required="required" id='custom_clear' name='custom_clear' placeholder="custom_clear" type='text'>
                             </div>
                         </div>
                         <div class='pets-weight'>
-                            <label for='pet-weight-0-25'>Toplivo</label>
+                            <label for='transmission_variant1'>Toplivo</label>
                             <div class='radio-container'>
-                            <input checked='' id='pet-weight-0-25' name='pet-weight' type='radio' value='0-25'>
-                            <label for='pet-weight-0-25'>0-25 lbs</label>
-                            <input id='pet-weight-25-50' name='pet-weight' type='radio' value='25-50'>
-                            <label for='pet-weight-25-50'>25-50 lbs</label>
-                            <input id='pet-weight-50-100' name='pet-weight' type='radio' value='50-100'>
-                            <label for='pet-weight-50-100'>50-100 lbs</label>
+                                <input required="required" checked='' id='transmission_variant1' name='transmission' type='radio' value='transmission_variant1'>
+                                <label for='transmission_variant1'>transmission_variant1</label>
+                                <input required="required" id='transmission_variant2' name='transmission' type='radio' value='transmission_variant2'>
+                                <label for='transmission_variant2'>transmission_variant1</label>
+                                <input required="required" id='transmission_variant3' name='transmission' type='radio' value='transmission_variant3'>
+                                <label for='transmission_variant3'>transmission_variant1</label>
                             </div>
                         </div>
                     </header>
@@ -207,7 +162,7 @@
                         <div class='set'>
                             <!-- <button id='back'>Back</button> -->
                             <h3> Are you ready ? </h3>
-                            <input id="submit" type="submit" name="submit" value="Predict">
+                            <input required="required" id="submit" type="submit" name="submit" value="Predict">
                         </div>
                     </footer>
             </div>
