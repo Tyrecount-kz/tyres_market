@@ -2,9 +2,18 @@
 
 <?php
 
-    //echo 'hi';
+    $query_id = -1;
+    $query = null;
+    // echo $_GET["query_id"];
+    if( isset($_GET["query_id"]) ){
+        $query_id = $_GET["query_id"];
+        echo '<div class="php_log">'.$query_id.'</div>';
 
-    $predicted = false;
+        include 'fetch_query.php';
+        $query = fetch_query( $query_id );    
+    }
+
+    // var_dump($query);
 
     if(isset($_POST['submit']))
     {
@@ -100,22 +109,52 @@
                         <div class='set'>
                             <div class='pets-name'>
                                 <label for='car_model'>Car Model</label>
-                                <input required="required" id='car_model' name="car_model" placeholder="Car Model" type='text'>
+                                <!-- add values which parsed by query _ id -->
+                                <input
+                                    <?php 
+                                        if( $query ){
+                                            echo 'value="'.$query["USER_ID"].'" ';
+                                            // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                        }
+                                    ?>
+                                    required="required" id='car_model' name="car_model" placeholder="Car Model" type='text'
+                                >
                             </div>
                         </div>
                         <div class='set'>
                             <div class='pets-breed'>
                                 <label for='shell'>shell</label>
-                                <input required="required" id='shell' name="shell" placeholder='shell' type='text'>                            
+                                <input
+                                    <?php 
+                                        if( $query ){
+                                            echo 'value="'.$query["FIRST_NAME"].'" ';
+                                            // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                        }
+                                    ?>
+                                     required="required" id='shell' name="shell" placeholder='shell' type='text'>                            
                             </div>
                             <div class='pets-birthday'>
                                 <label for='release_year'>release_year</label>
-                                <input required="required" id='release_year' name="release_year" placeholder="release_year" type='text'>
+                                <input
+                                    <?php 
+                                        if( $query ){
+                                            echo 'value="'.$query["FIRST_NAME"].'" ';
+                                            // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                        }
+                                    ?>
+                                     required="required" id='release_year' name="release_year" placeholder="release_year" type='text'>
                             </div>
                             
                             <div class='pets-breed'>
                                 <label for='mileage'>mileage</label>
-                                <input required="required" id='mileage' name ="mileage" placeholder='mileage' type='text'>                            
+                                <input
+                                    <?php 
+                                        if( $query ){
+                                            echo 'value="'.$query["FIRST_NAME"].'" ';
+                                            // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                        }
+                                    ?>
+                                     required="required" id='mileage' name ="mileage" placeholder='mileage' type='text'>                            
                             </div>
 
                         </div>
@@ -123,27 +162,62 @@
                         <div class='set'>
                             <div class='pets-birthday'>
                                 <label for='rudder'>rudder</label>
-                                <input required="required" id='rudder' name="rudder" placeholder="rudder" type='text'>
+                                <input
+                                    <?php 
+                                        if( $query ){
+                                            echo 'value="'.$query["FIRST_NAME"].'" ';
+                                            // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                        }
+                                    ?>
+                                     required="required" id='rudder' name="rudder" placeholder="rudder" type='text'>
                             </div>
                             
                             <div class='pets-breed'>
                                 <label for='color'>color</label>
-                                <input required="required" id='color' name="color" placeholder='color' type='text'>                            
+                                <input
+                                    <?php 
+                                        if( $query ){
+                                            echo 'value="'.$query["FIRST_NAME"].'" ';
+                                            // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                        }
+                                    ?>
+                                     required="required" id='color' name="color" placeholder='color' type='text'>                            
                             </div>
                             <div class='pets-birthday'>
                                 <label for='gear'>gear</label>
-                                <input required="required" id='gear' name="gear" placeholder="gear" type='text'>
+                                <input
+                                    <?php 
+                                        if( $query ){
+                                            echo 'value="'.$query["FIRST_NAME"].'" ';
+                                            // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                        }
+                                    ?>
+                                     required="required" id='gear' name="gear" placeholder="gear" type='text'>
                             </div>
                         </div>
 
                         <div class='set'>
                             <div class='pets-breed'>
                                 <label for='engine_volume'>engine_volume</label>
-                                <input required="required" id='engine_volume' name='engine_volume' placeholder='engine_volume' type='text'>                            
+                                <input
+                                    <?php 
+                                        if( $query ){
+                                            echo 'value="'.$query["FIRST_NAME"].'" ';
+                                            // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                        }
+                                    ?>
+                                     required="required" id='engine_volume' name='engine_volume' placeholder='engine_volume' type='text'>                            
                             </div>
                             <div class='pets-birthday'>
                                 <label for='custom_clear'>custom_clear</label>
-                                <input required="required" id='custom_clear' name='custom_clear' placeholder="custom_clear" type='text'>
+                                <input
+                                    <?php 
+                                        if( $query ){
+                                            echo 'value="'.$query["FIRST_NAME"].'" ';
+                                            // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                        }
+                                    ?>
+                                     required="required" id='custom_clear' name='custom_clear' placeholder="custom_clear" type='text'>
                             </div>
                         </div>
                         <div class='pets-weight'>

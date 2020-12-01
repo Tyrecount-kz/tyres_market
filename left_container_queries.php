@@ -37,7 +37,7 @@
         All predictions for this car
     </h1>
 
-    <a href="profile1.php"> <h3> Go to Profile </h3> </a>
+    <a href="profile.php"> <h3> Go to Profile </h3> </a>
 
     <div class='queries' >
         <?php 
@@ -51,7 +51,13 @@
                     <div class='set'>
                         <!-- <button id='back'>Back</button> -->
                         <?php echo $query["USER_ID"] ?>
-                        <input required="required" id="submit" type="submit" name="submit" value="Modify">
+                        
+                        <a href="prediction_result.php?query_id= <?php echo $query["USER_ID"] ?> "> 
+                            <button class='query_button'>Review</button> 
+                        </a>
+                        <a href="prediction_section.php?query_id= <?php echo $query["USER_ID"] ?> "> 
+                            <button class='query_button'>Modify</button> 
+                        </a>
                     </div>
                 </footer>
             </div>

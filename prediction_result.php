@@ -2,8 +2,9 @@
 
 <?php
 
-    //echo 'hi';
-
+    
+    echo '<div class="php_log">'.$_GET['query_id'].'</div>';
+    
     $predicted = false;
 
     if(isset($_POST['submit']))
