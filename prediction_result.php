@@ -27,7 +27,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +55,8 @@
         <?php require_once('left_container_queries.php');  ?>
         <div class='right-container'>
             <header>
-                    <h1>Result</h1>
+                <h1>Result</h1>
+                <button  onclick="on()" id="to_market" class="submit"> Add to market </button>
             </header>
             <footer>
                 <form action="prediction_result.php" method="post" name="form" id="form" >                 
@@ -71,6 +71,9 @@
             </footer>
         </div>
     </div>
+
+    
+    <?php require_once('overlay_queries.php') ?>
 
 </body>
 </html>

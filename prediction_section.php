@@ -2,6 +2,8 @@
 
 <?php
 
+    include 'get_variable.php';
+
     $query_id = get_variable("query_id");
     echo $query_id;
 
@@ -11,31 +13,6 @@
     $query = fetch_item( $sql_query );    
     
     $car_id = get_variable("car_id");
-
-    function get_variable($var_name, $type = "GET"){
-            
-        $value = null;
-
-        if( $type == "GET" ){
-
-            // echo $_GET["query_id"];
-            if( isset($_GET[$var_name]) ){
-                $value = $_GET[$var_name];
-                echo '<div class="php_log">'.$value.'</div>';
-            }
-        
-        }
-        else{
-            // echo $_POST["query_id"];
-            if( isset($_POST[$var_name]) ){
-                $value = $_POST[$var_name];
-                echo '<div class="php_log">'.$value.'</div>';
-            }
-        }
-
-        return $value;
-
-    }
 
     // var_dump($query);
 

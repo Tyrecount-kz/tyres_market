@@ -32,7 +32,7 @@ body {
     padding: 40px 0 0 0;
     position: relative;
     text-align: center;
-    width: 400px;
+    width: 300px;
     height: 576px;
 }
 
@@ -142,7 +142,7 @@ body {
     justify-content: space-between;
     /* display: grid; */
     /* grid-template-areas: "." "."; */
-    width: 600px;
+    width: 700px;
     height: 576px;
 }
 
@@ -267,8 +267,8 @@ body {
     justify-content: center;
     align-items: center;
     background: red;
-    min-width: 164px;
-    max-width: 256px;
+    min-width: 197px;
+    max-width: 348px;
     min-height: 164px;
     margin: 10px;
     border-radius: 5px;

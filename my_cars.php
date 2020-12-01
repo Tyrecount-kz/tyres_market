@@ -66,8 +66,13 @@
 
         <div id="cars" class="container right-container profile"  style="overflow-y:scroll;">
 
+            <div class="row">
+                <div class="car col-md-3 col-lg-3">
+                    <a href="add_new_car.php?"> + </a>
+                </div>
+
             <?php
-                $index = 0;
+                $index = 1;
                 foreach($cars as $car){
                     if( $index % 3 == 0 )
                         echo "<div class='row'>";
@@ -94,5 +99,6 @@
         
 
     </div>
+
 </body>
 </html>
