@@ -145,6 +145,10 @@ body {
     height: 576px;
 }
 
+#cars {
+    padding: 32px;
+}
+
 .right-container h1:nth-of-type(1) {
     color: rgba(0, 0, 0, 0.8);
     font-size: 28px;
@@ -250,6 +254,22 @@ body {
 
 .right-container footer #next:hover {
     background: #171A2B;
+}
+
+.right-container .cars_main {
+    height: 100%;
+}
+
+.right-container .car {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    min-width: 164px;
+    max-width: 256px;
+    min-height: 164px;
+    margin: 10px;
+    border-radius: 5px;
 }
 
 .pets-name label,

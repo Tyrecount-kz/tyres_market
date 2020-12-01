@@ -5,110 +5,40 @@
 
 /* Colors */
 
-body {
-    background: #F1F2F2;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
+.left_nav {
+    padding: 0;
 }
 
-* {
-    font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+.links {
+    background: white;
+    height: 100%;
 }
 
-form.fancy-form {
-    margin-top: 40px;
+.links li {
+    height: calc(100% / 5);
+    background: grey;
+    margin-bottom: 5px;
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    font-size: 16px;
 }
 
-form.fancy-form input[type="text"],
-form.fancy-form input[type="password"],
-form.fancy-form input[type="email"],
-form.fancy-form input[type="number"] {
-    border-color: white;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    color: #1a1a1a;
-    padding: 0.7rem 0.7rem 0 0.5rem;
-    font-size: 14px;
-}
-
-form.fancy-form .select-dd {
-    position: relative;
-}
-
-form.fancy-form .select-dd select {
-    display: block;
-    border-color: white;
-    border-radius: 0;
-    outline: none;
-    background-color: white;
-    background-image: none;
-    color: #1a1a1a;
-    padding: 0.7rem 0.5rem;
-    font-size: 14px;
-    position: relative;
-}
-
-form.fancy-form .select-dd select option.first {
-    color: #A6A7AA;
-}
-
-form.fancy-form .select-dd:after {
-    width: 38px;
-    height: 38px;
-    display: block;
-    border-left: 1px solid #f4f4f5;
-    position: absolute;
-    top: 0;
-    right: 15px;
-    content: '\f107';
-    padding: 0.8rem 0 0;
-    font-family: FontAwesome;
-    text-align: center;
-}
-
-form.fancy-form .columns {
-    position: relative;
-}
-
-form.fancy-form .columns label {
-    position: absolute;
-    left: 24px;
-    top: 12px;
-    color: #A6A7AA;
-    font-size: 0.875rem;
-    transition: font-size .1s, top .1s;
-}
-
-form.fancy-form .columns input:focus,
-form.fancy-form .columns input:valid {
-    border-color: white;
-    background-color: white;
-}
-
-form.fancy-form .columns input:focus+label,
-form.fancy-form .columns input:valid+label {
-    top: 4px;
-    font-size: 0.6rem;
-}
-
-form.fancy-form button[type="button"],
-form.fancy-form button[type="submit"],
-form.fancy-form button[type="reset"] {
+.links a {
+    height: 100%;
     width: 100%;
-    background-color: tomato;
-    border-radius: 0;
-    outline: none;
-    padding: 0.7rem 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 700 !important;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkorange;
+    font-size: 24px;
+    color: black;
+    font-weight: 800;
+    ;
 }
 
-form.fancy-form button[type="button"] i,
-form.fancy-form button[type="submit"] i,
-form.fancy-form button[type="reset"] i {
-    font-weight: 800 !important;
+.links a:hover {
+    background-color: bisque;
 }

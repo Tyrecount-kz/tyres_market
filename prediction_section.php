@@ -26,7 +26,7 @@
         
         echo '</div>';
         predict();
-        // header('location: prediction_result.php');
+        header('location: prediction_result.php');
 
     }
 
@@ -103,6 +103,7 @@
     <div class='signup-container'>
         <?php require_once('left_container_queries.php') ?>
         <form action="prediction_section.php" method="post" name="form" id="form" >
+
             <div class='right-container'>
                     <header>
                         <h1>Yay, let's predict your car's price</h1>

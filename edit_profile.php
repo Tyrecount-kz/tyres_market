@@ -46,9 +46,9 @@
         
         <?php include 'left_container_navbar.php'; ?>
 
-        <div id="info" class='right-container'>
+        <div id="edit" class='right-container'>
             <header>
-                <h1>Result</h1>
+                <h1>Edit</h1>
             </header>
             <footer>
                 <form action="prediction_result.php" method="post" name="form" id="form" >                 
