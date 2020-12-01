@@ -56,37 +56,15 @@ ca<?php session_start(); ?>
 
     <div class='signup-container'>
         
-        <?php include 'left_container_navbar.php'; ?>
+        <?php include 'left_container_queries.php'; ?>
 
         <div id="car_detail" class="right-container" >
 
-            <?php
-                $index = 0;
-                foreach($cars as $car){
-                    if( $index % 3 == 0 )
-                        echo "<div class='row'>";
-            ?>
-
-                <div class="car col-md-3 col-lg-3">
-                    <h3> <?php echo $car["FIRST_NAME"]; ?> </h3>
-                    
-                </div>
-                
-            <?php 
-                $index += 1;
-                if( $index % 3 == 0 )
-                    echo "</div>";
-            }
-            if( $index % 3 != 0 ){
-                echo "</div>";
-            }
-            ?>
-            
+            <h1> Your car's detail <?php echo $_GET["car_id"] ?> </h1>
             
         </div>
 
-        
-
     </div>
+
 </body>
 </html>

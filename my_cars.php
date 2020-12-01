@@ -75,7 +75,7 @@
 
                 <div class="car col-md-3 col-lg-3">
                     <h3> <?php echo $car["FIRST_NAME"]; ?> </h3>
-                    
+                    <a href="car_detail.php?car_id=<?php echo $car["USER_ID"]; ?>"> review </a>
                 </div>
                 
             <?php 
