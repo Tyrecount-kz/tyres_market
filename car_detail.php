@@ -1,4 +1,4 @@
-ca<?php session_start(); ?>
+<?php session_start(); ?>
 
 <?php
 
@@ -39,7 +39,7 @@ ca<?php session_start(); ?>
     <meta content="" name="keywords">
 
     
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -59,12 +59,24 @@ ca<?php session_start(); ?>
         <?php include 'left_container_queries.php'; ?>
 
         <div id="car_detail" class="right-container" >
-
-            <h1> Your car's detail <?php echo $_GET["car_id"] ?> </h1>
             
+            <header>
+                <h1> Your car's detail <?php echo $_GET["car_id"] ?> </h1>
+
+            </header>
+            <footer>
+                <form action="prediction_result.php" method="post" name="form" id="form" >                 
+                    <div class='set'>
+                        <?php include 'go_back.php' ?>
+                        <!-- <h3> </h3> -->
+                        <input id="submit" type="submit" name="submit" value="Add to market">
+                    </div>
+                </form>
+            </footer>
+
         </div>
 
     </div>
-
+    
 </body>
 </html>

@@ -37,8 +37,6 @@
         All predictions for this car
     </h1>
 
-    <a href="profile.php"> <h3> Go to Profile </h3> </a>
-
     <div class='queries' >
         <?php 
             foreach ($rows as $query){         
@@ -52,10 +50,10 @@
                         <!-- <button id='back'>Back</button> -->
                         <?php echo $query["USER_ID"] ?>
                         
-                        <a href="prediction_result.php?query_id= <?php echo $query["USER_ID"] ?> "> 
+                        <a href="prediction_result.php?query_id=<?php echo $query["USER_ID"] ?> "> 
                             <button class='query_button'>Review</button> 
                         </a>
-                        <a href="prediction_section.php?query_id= <?php echo $query["USER_ID"] ?> "> 
+                        <a href="prediction_section.php?query_id=<?php echo $query["USER_ID"] ?> "> 
                             <button class='query_button'>Modify</button> 
                         </a>
                     </div>

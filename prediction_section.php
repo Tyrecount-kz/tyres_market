@@ -2,15 +2,39 @@
 
 <?php
 
-    $query_id = -1;
-    $query = null;
-    // echo $_GET["query_id"];
-    if( isset($_GET["query_id"]) ){
-        $query_id = $_GET["query_id"];
-        echo '<div class="php_log">'.$query_id.'</div>';
+    $query_id = get_variable("query_id");
+    echo $query_id;
 
-        include 'fetch_query.php';
-        $query = fetch_query( $query_id );    
+    include 'fetch_item.php';
+    
+    $sql_query = "select * from users where user_id = '$query_id'";
+    $query = fetch_item( $sql_query );    
+    
+    $car_id = get_variable("car_id");
+
+    function get_variable($var_name, $type = "GET"){
+            
+        $value = null;
+
+        if( $type == "GET" ){
+
+            // echo $_GET["query_id"];
+            if( isset($_GET[$var_name]) ){
+                $value = $_GET[$var_name];
+                echo '<div class="php_log">'.$value.'</div>';
+            }
+        
+        }
+        else{
+            // echo $_POST["query_id"];
+            if( isset($_POST[$var_name]) ){
+                $value = $_POST[$var_name];
+                echo '<div class="php_log">'.$value.'</div>';
+            }
+        }
+
+        return $value;
+
     }
 
     // var_dump($query);
@@ -235,7 +259,7 @@
                     </header>
                     <footer>
                         <div class='set'>
-                            <!-- <button id='back'>Back</button> -->
+                            <?php include 'go_back.php' ?>
                             <h3> Are you ready ? </h3>
                             <input required="required" id="submit" type="submit" name="submit" value="Predict">
                         </div>

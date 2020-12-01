@@ -22,6 +22,7 @@ body {
     display: grid;
     grid-template-areas: "left right";
     max-width: 1200px;
+    margin: auto 0;
     /* vertical-align: center; */
 }
 

@@ -13,7 +13,7 @@
             <li><a href="main_info.php"> Logo </a></li>
             <li><a href="profile.php"> Profile, Notifications </a></li>
             <li><a href="my_cars.php"> My Cars </a></li>
-            <li><a href="prediction_section.php"> Predict </a></li>
+            <li><a href="add_new_car.php"> Add new car </a></li>
             <li><a href="edit_profile.php"> Edit Profile </a></li>
         </ul>
     </div>

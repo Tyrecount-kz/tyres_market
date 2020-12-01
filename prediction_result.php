@@ -2,18 +2,27 @@
 
 <?php
 
-    
-    echo '<div class="php_log">'.$_GET['query_id'].'</div>';
-    
-    $predicted = false;
-
-    if(isset($_POST['submit']))
-    {
-        header('location: prediction_section.php');
+    $query_id = -1;
+    if( isset( $_GET['query_id'] ) ){
+        $query_id = $_GET['query_id'];
+        echo '<div class="php_log">'.$query_id.'</div>';
     }
 
-    function add_new_car(){
+    $predicted = false;
+
+    if(isset($_POST['modify']))
+    {
+        echo '<div class="php_log">Mod '.$_POST['id'].'</div>';
+        header('location: prediction_section.php?query_id='.$_POST['id']);
+    }
+
+    if( isset($_POST['delete']) ){
+        delete_car();
+    }
+
+    function delete_car(){
         // add new car then call predict
+        echo '<div class="php_log">DEL '.$_POST['id'].'</div>';
     }
 
 ?>
@@ -52,9 +61,11 @@
             <footer>
                 <form action="prediction_result.php" method="post" name="form" id="form" >                 
                     <div class='set'>
-                        <!-- <button id='back'>Back</button> -->
+                        <?php include 'go_back.php' ?>
                         <h3> Check for different configurations ? </h3>
-                        <input id="submit" type="submit" name="submit" value="Modify">
+                        <input id="modify" type="submit" name="modify" value="Modify">
+                        <input id="delete" type="submit" name="delete" value="Delete">
+                        <input type="hidden" name="id" value="<?php echo $query_id; ?>" />
                     </div>
                 </form>
             </footer>
