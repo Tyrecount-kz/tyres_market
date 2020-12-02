@@ -123,7 +123,7 @@
                         alt=""
                         class="car_image"
                     >
-                    <a href="car_detail.php?car_id=<?php echo $car["USER_ID"]; ?>"> review </a>
+                    <a href="post_detail.php?post_id=<?php echo $car["USER_ID"]; ?>"> review </a>
                 </div>
                 
             <?php 

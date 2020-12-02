@@ -314,3 +314,23 @@ body {
     background: #F7B1AB;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+.description {
+    background: blue;
+    padding: 10px;
+    margin-top: 32px;
+}
+
+.comments {
+    padding: 10px;
+}
+
+.comment {
+    background-color: tomato;
+    padding: 10px;
+}
+
+.comment .reply {
+    background-color: violet;
+    margin-left: 64px;
+}

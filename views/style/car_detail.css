@@ -12,12 +12,13 @@ body {
 }
 
 .car_detail header {
-    padding: 10px;
+    padding: 3px;
     /* height: 64px; */
     background-color: darksalmon;
     margin-bottom: 16px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 15px;
 }
 
