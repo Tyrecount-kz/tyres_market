@@ -343,16 +343,18 @@
             border-radius: 0 !important;
             border-bottom: 1px solid black !important;
             background: transparent;
-            margin-bottom: 24px;
             font: 16px Arial, Helvetica, sans-serif;
 
+            margin-bottom: 12px;
             transition: all 0.25s;
             /* height: 45px; */
         }
 
         input[type="text"]:hover,
-        textarea:hover {
-            border-bottom: 3px solid #238755 !important;
+        textarea:hover,
+        input[type="text"]:focus,
+        textarea:focus {
+            border-bottom: 5px solid #238755 !important;
         }
 
         textarea {
@@ -393,6 +395,15 @@
             background: #1D0F2B;
             color: white;
         }
+
+        .first_info {
+            font-weight: 800 !important;
+            font-size: 25px !important;
+            /* text-transform: uppercase; */
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
     </style>
 
 </head>
@@ -453,9 +464,9 @@
                                         Enter car's manufacturer and model
                                     </h3>
 
-                                    <input type="text" name="manufacturer" placeholder="Manufacturer" />
+                                    <input class="first_info" type="text" name="manufacturer" placeholder="Manufacturer" />
 
-                                    <input type="text" name="model" placeholder="Model" />
+                                    <input class="first_info" type="text" name="model" placeholder="Model" />
 
                                     <ul class="list-inline pull-right">
                                         <li>

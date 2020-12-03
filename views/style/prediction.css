@@ -311,12 +311,20 @@ body {
     min-width: 50px;
 }
 
+.form_block .pets-weight {
+    width: 178px;
+}
+
+.form_block .pets-weight label {
+    width: 70px;
+}
+
 .radio-container input[type="radio"] {
     display: none;
 }
 
 .radio-container input[type="radio"]:checked+label {
-    background: #F7B1AB;
+    background: #F9ECCC;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
