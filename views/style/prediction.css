@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #D8AA96;
+    background: #E0DDCF;
     color: rgba(0, 0, 0, 0.8);
     display: grid;
     font-family: "Montserrat", sans-serif;
@@ -136,7 +136,7 @@ body {
 }
 
 .right-container {
-    background: #f9c7c2;
+    background: #F9ECCC;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -313,4 +313,17 @@ body {
 .radio-container input[type="radio"]:checked+label {
     background: #F7B1AB;
     border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details_form {
+    background: none;
+    padding: 0;
+    max-width: 600px;
+    height: 420px;
+    margin: 10px;
+    /* background: red; */
+}
+
+.details_form header {
+    padding: 0;
 }
