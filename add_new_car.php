@@ -11,11 +11,13 @@
     
     function add_new_car($user_id){
 
+        // var_dump( $_POST );
+
         $company = $_POST['company'];
         $model = $_POST['model'];
 
         $shell = $_POST['shell'];
-        $year = $_POST['year'];
+        $year = $_POST['release_year'];
         $mileage = $_POST['mileage'];
         $rudder = $_POST['rudder'];
         $color = $_POST['color'];
@@ -33,38 +35,22 @@
         // send me car_id
 
         $stid = oci_parse($conn, $query);
-        echo oci_execute($stid, OCI_DEFAULT);
+        oci_execute($stid, OCI_DEFAULT);
 
         oci_commit($conn);
-
-        // Add images -> file path
-        // echo 'uploading';
-        // var_dump($_FILES["images"]);
-
-        $images_array = array();
-        foreach($_FILES["images"]['name'] as $key=>$val){
-        
-            $uploadfile = $_FILES["images"]["tmp_name"][$key];
-            $folder="images/";
-
-            $target_file = $folder.$_FILES['images']['name'][$key];
-            // echo $target_file;
-
-            if(move_uploaded_file($_FILES["images"]["tmp_name"][$key], "$folder".$_FILES["images"]["name"][$key])){
-                $images_array[] = $target_file;
-            }
-            
-        }
 
         // get car_id
         $car_id = -1;
         // Add new query , predict , show result
         
+        // Add images -> file path
+        // echo 'uploading';
+        // var_dump($_FILES["images"]);
+        include 'add_new_photos.php';
+        add_new_photos($car_id);
 
-        header("location: prediction_result.php?car_id=$car_id");
-
-        
-
+        // echo 'moves';
+        // header("location: prediction_result.php?car_id=$car_id");
     }
 
 ?>
@@ -97,6 +83,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://www.expertphp.in/js/jquery.form.js"></script>
+    
     <script>
         function preview_images() {
             var total_file = document.getElementById("images").files.length;
@@ -538,16 +525,17 @@
                                             <a class="btn btn-default prev-step">Back</a>
                                         </li>
                                         <li>
-                                            <input class="btn btn-warning submit_button" type="submit" name="submit"
-                                                value="Add car" />
+                                            <a class="btn btn-default next-step">Predict</a>
                                         </li>
                                     </ul>
 
 
                                 </div>
                                 <div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
-                                    <h3>4. All done!</h3>
-                                    <p>You have successfully completed all steps.</p>
+                                    <h3>Now we will process the data</h3>
+                                    <p>Be ready to know you car's price!</p>
+                                    <input class="btn btn-warning submit_button" type="submit" name="submit"
+                                                value="I'm ready" />
                                 </div>
                             </div>
                         </form>

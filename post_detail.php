@@ -96,7 +96,7 @@
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="views/style/car_detail.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
-  
+    
 
 </head>
 
@@ -184,7 +184,7 @@
 
                         start_carousel($images);
 
-                        ?>
+                    ?>
                         
                     <footer class='comments_section'>
                         

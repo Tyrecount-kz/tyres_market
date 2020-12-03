@@ -36,4 +36,21 @@
     </div>';
   }
 
+  function show_uploaded_images($images, $car_id){
+    echo '
+    <form action="delete_photo.php" method="post" name="form">
+    <div class="row uploads_i">';
+    foreach($images as $image){
+      echo '
+      <div class="column">
+        <input type="submit" name="delete" class="closebtn" value="X" >
+        <input type="hidden" name="car_id" value="'.$car_id.'" >
+        <input type="hidden" name="image_path" value="'.$image.'" >
+
+        <img src="'.$image.'">
+      </div>';
+    }
+    echo '</div></form>';
+  }
+
 ?>

@@ -14,58 +14,6 @@
 
     // var_dump($query);
 
-    if(isset($_POST['submit']))
-    {
-        echo '<div class="php_log"> to true </div>';
-        $predicted = true;
-        
-        echo '<div class="php_log">';
-
-            var_dump( $_POST );
-        
-        echo '</div>';
-        predict();
-        header('location: prediction_result.php');
-
-    }
-
-    function predict(){
-
-        if(!empty($_POST['email']) && !empty($_POST['password']))
-        {
-            $email = $_POST['email'];
-            
-            // encrypt password
-            $password = $_POST['password'];
-            $password = md5($password);
-           
-            // $first_name = $_POST['first_name'];
-            // $last_name = $_POST['last_name'];
-            // $phone = $_POST['phone'];
-            // $city = $_POST['city'];
-
-            include 'connect.php';
-        
-            // query
-            $query = "INSERT INTO USERS VALUES(default, '$first_name','$last_name','$city','$phone','$email','$password')";
-            // echo $query;
-
-            $stid = oci_parse($conn, $query);
-            echo oci_execute($stid, OCI_DEFAULT);
-
-            oci_commit($conn);
-        
-            //$_SESSION['user'] = $email;
-            
-            header('location: index.php');
-            /*
-            else {
-                echo '<p id="failed">Login Failed !</p>';
-            }*/
-        }
-    }
-
-
 ?>
 
 <form class="" action="prediction_section.php" method="post" name="form" id="form">
@@ -176,7 +124,7 @@
             </div>
             
             <div class='pets-weight'>
-                <label for='transmission_variant1'>Toplivo</label>
+                <label for='transmission'>Toplivo</label>
                 <div class='radio-container'>
                     <input required="required" checked='' id='transmission_variant1' name='transmission' type='radio'
                         value='transmission_variant1'>
