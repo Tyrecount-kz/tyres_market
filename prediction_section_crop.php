@@ -73,24 +73,9 @@
     <div class='right-container details_form'>
             <header>
                 <h3 class="hs">3. Review and Submit Payment</h3>
-                             
+                
                 <div class='set'>
-                    <div class='pets-name'>
-                        <label for='car_model'>Car Model</label>
-                        <!-- add values which parsed by query _ id -->
-                        <input
-                            <?php 
-                                if( $query ){
-                                    echo 'value="'.$query["USER_ID"].'" ';
-                                    // echo 'value="'.$query["FIRST_NAME"].'" '; 
-                                }
-                            ?>
-                            required="required" id='car_model' name="car_model" placeholder="Car Model" type='text'
-                        >
-                    </div>
-                </div>
-                <div class='set'>
-                    <div class='pets-breed'>
+                    <div class='form_block'>
                         <label for='shell'>shell</label>
                         <input
                             <?php 
@@ -101,7 +86,7 @@
                             ?>
                                 required="required" id='shell' name="shell" placeholder='shell' type='text'>                            
                     </div>
-                    <div class='pets-birthday'>
+                    <div class='form_block'>
                         <label for='release_year'>release_year</label>
                         <input
                             <?php 
@@ -113,7 +98,7 @@
                                 required="required" id='release_year' name="release_year" placeholder="release_year" type='text'>
                     </div>
                     
-                    <div class='pets-breed'>
+                    <div class='form_block'>
                         <label for='mileage'>mileage</label>
                         <input
                             <?php 
@@ -128,7 +113,7 @@
                 </div>
 
                 <div class='set'>
-                    <div class='pets-birthday'>
+                    <div class='form_block'>
                         <label for='rudder'>rudder</label>
                         <input
                             <?php 
@@ -140,7 +125,7 @@
                                 required="required" id='rudder' name="rudder" placeholder="rudder" type='text'>
                     </div>
                     
-                    <div class='pets-breed'>
+                    <div class='form_block'>
                         <label for='color'>color</label>
                         <input
                             <?php 
@@ -151,7 +136,7 @@
                             ?>
                                 required="required" id='color' name="color" placeholder='color' type='text'>                            
                     </div>
-                    <div class='pets-birthday'>
+                    <div class='form_block'>
                         <label for='gear'>gear</label>
                         <input
                             <?php 
@@ -165,7 +150,7 @@
                 </div>
 
                 <div class='set'>
-                    <div class='pets-breed'>
+                    <div class='form_block'>
                         <label for='engine_volume'>engine_volume</label>
                         <input
                             <?php 
@@ -176,7 +161,7 @@
                             ?>
                                 required="required" id='engine_volume' name='engine_volume' placeholder='engine_volume' type='text'>                            
                     </div>
-                    <div class='pets-birthday'>
+                    <div class='form_block'>
                         <label for='custom_clear'>custom_clear</label>
                         <input
                             <?php 

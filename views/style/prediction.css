@@ -171,10 +171,11 @@ body {
 
 .right-container input {
     border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    /* border-radius: 4px; */
     height: 38px;
+    /* width: 8px; */
     line-height: 38px;
-    padding-left: 5px;
+    /* padding-left: 5px; */
 }
 
 .right-container input,
@@ -189,7 +190,7 @@ body {
 .right-container label,
 .right-container input,
 .right-container .pets-photo {
-    min-width: 128px;
+    min-width: 50px;
 }
 
 .right-container .pets-photo {
@@ -284,6 +285,10 @@ body {
     margin-bottom: 5px;
 }
 
+.form_block {
+    max-width: 178px;
+}
+
 .radio-container {
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -303,7 +308,7 @@ body {
     padding: 2px;
     text-align: center;
     transition: .2s all ease-in-out;
-    min-width: 80px;
+    min-width: 50px;
 }
 
 .radio-container input[type="radio"] {
@@ -315,11 +320,19 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.hs {
+    margin-bottom: 24px;
+}
+
 .details_form {
     background: none;
     padding: 0;
     max-width: 600px;
     height: 420px;
+    display: flex;
+    flex-flow: center;
+    /* align-items: center; */
+    justify-content: center;
     margin: 10px;
     /* background: red; */
 }

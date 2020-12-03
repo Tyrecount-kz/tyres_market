@@ -235,6 +235,44 @@
         .stepper .disabled .round-tab::after {
             display: none;
         }
+
+        /*form*/
+
+        input[type="text"],
+        textarea
+        /* .form-style-8 select  */
+        {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            /* outline: none; */
+            display: block !important;
+            width: 100%;
+            padding: 2px !important;
+            border: none !important;
+            border-radius: 0 !important;
+            border-bottom: 1px solid black !important;
+            background: transparent; 
+            margin-bottom: 5px;
+            font: 16px Arial, Helvetica, sans-serif;
+            /* height: 45px; */
+        }
+        textarea{
+            resize:none;
+            overflow: hidden;
+        }
+        
+        .list-inline {
+            margin-top: 20px;
+        }
+
+        /* .page-header {
+            margin-bottom:
+        } */
+
+</style>
+
+
     </style>
 
 </head>
@@ -289,10 +327,15 @@
                                             </small>
                                         </h1>
                                     </div>
-                                    <h3 class "h2">
-                                        1. Enter car's model
+                                    
+                                    <h3 class="h2">
+                                        Enter car's manufacturer and model
                                     </h3>
-                                    <p>This is step 1</p>
+                                                                    
+                                    <input type="text" name="manufacturer" placeholder="Manufacturer" />
+                                                           
+                                    <input type="text" name="model" placeholder="Model" />
+                                    
                                     <ul class="list-inline pull-right">
                                         <li>
                                             <a class="btn btn-primary next-step">Next</a>
