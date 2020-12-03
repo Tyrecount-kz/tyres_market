@@ -172,7 +172,7 @@ body {
 .right-container input {
     border: 1px solid rgba(0, 0, 0, 0.1);
     /* border-radius: 4px; */
-    height: 38px;
+    min-height: 38px;
     /* width: 8px; */
     line-height: 38px;
     /* padding-left: 5px; */
@@ -190,7 +190,7 @@ body {
 .right-container label,
 .right-container input,
 .right-container .pets-photo {
-    min-width: 50px;
+    min-width: 96px;
 }
 
 .right-container .pets-photo {

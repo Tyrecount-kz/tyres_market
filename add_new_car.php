@@ -4,37 +4,56 @@
 
     $user_id = $_SESSION["user"]["USER_ID"];
 
-    add_new_car($user_id);
-
+    if(isset($_POST['submit']))
+    {
+        add_new_car($user_id);
+    }
+    
     function add_new_car($user_id){
 
-        if( !empty($_POST['city']) )
-        {
-            $city = $_POST['city'];
-            
-            include 'connect.php';
+        $city = $_POST['city'];
         
-            // query
-            $query = "INSERT INTO CARS (car_id, user_id, city) VALUES (default, '$user_id', '$city')";
-            // echo $query;
-            // send me car_id
+        include 'connect.php';
+    
+        // query
+        $query = "INSERT INTO CARS (car_id, user_id, city) VALUES (default, '$user_id', '$city')";
+        // echo $query;
+        // send me car_id
 
-            $stid = oci_parse($conn, $query);
-            echo oci_execute($stid, OCI_DEFAULT);
+        $stid = oci_parse($conn, $query);
+        echo oci_execute($stid, OCI_DEFAULT);
 
-            oci_commit($conn);
+        oci_commit($conn);
 
-            $car_id = -1;
-            header("location: prediction_section.php?car_id=$car_id");
-            /*
-            else {
-                echo '<p id="failed">Login Failed !</p>';
-            }*/
+        $car_id = -1;
+        header("location: prediction_section.php?car_id=$car_id");
+        /*
+        else {
+            echo '<p id="failed">Login Failed !</p>';
+        }*/
+
+        // echo 'uploading';
+        // var_dump($_FILES["images"]);
+
+        $images_array = array();
+        foreach($_FILES["images"]['name'] as $key=>$val){
+        
+            $uploadfile = $_FILES["images"]["tmp_name"][$key];
+            $folder="images/";
+
+            $target_file = $folder.$_FILES['images']['name'][$key];
+            // echo $target_file;
+
+            if(move_uploaded_file($_FILES["images"]["tmp_name"][$key], "$folder".$_FILES["images"]["name"][$key])){
+                $images_array[] = $target_file;
+            }
+            
         }
+
     }
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +79,77 @@
     <link href="views/style/prediction.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
     <link href="views/style/php_log.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://www.expertphp.in/js/jquery.form.js"></script>
+    <script>
+        function preview_images() {
+            var total_file = document.getElementById("images").files.length;
+            for (var i = 0; i < total_file; i++) {
+                $('#image_preview').append("<div class='col-md-3'><img class='img-responsive u_image' src='" + URL
+                    .createObjectURL(event.target.files[i]) + "'></div>");
+            }
+        }
+    </script>
+
     <style>
+        .m_uploader {
+            /* background: white; */
+            height: 360px;
+            width: 550px;
+            /* padding: 16px; */
+        }
+
+        .header {
+            margin-bottom: 16px;
+        }
+
+        .file-upload {
+
+            margin-top: 12px;
+
+            height: 64px;
+            width: 64px;
+
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 3px !important;
+            background: #ff0000;
+            text-transform: uppercase;
+            font-size: 40px;
+            border: none !important;
+            box-shadow: none !important;
+            color: #fff !important;
+            text-shadow: none;
+            padding: 5px 10px !important;
+            font-family: Arial, sans-serif;
+            display: inline-block;
+            vertical-align: middle;
+
+        }
+
+        .file-upload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .u_image {
+            min-width: 64px;
+            /* height: 128px; */
+            position: relative;
+            /* border-radius: 100%; */
+            border: 6px solid #1D0F2B;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        }
+
         @charset "UTF-8";
 
         .stepper {
@@ -87,7 +176,7 @@
             height: 100%;
             margin: 0;
             display: flex;
-            flex-flow:column;
+            flex-flow: column;
             justify-content: center;
         }
 
@@ -116,7 +205,7 @@
         }
 
         .stepper .nav-tabs>li.completed::after {
-            background: #34bc9b;
+            background: #238755;
         }
 
         .stepper .nav-tabs>li:last-child::after {
@@ -124,7 +213,7 @@
         }
 
         .stepper .nav-tabs>li.active:last-child .round-tab {
-            background: #34bc9b;
+            background: #238755;
         }
 
         .stepper .nav-tabs>li.active:last-child .round-tab::after {
@@ -156,7 +245,7 @@
         .stepper .nav-tabs>.active>[data-toggle='tab'],
         .stepper .nav-tabs>.active>[data-toggle='tab']:hover,
         .stepper .nav-tabs>.active>[data-toggle='tab']:focus {
-            color: #34bc9b;
+            color: #238755;
             cursor: default;
             border: none;
         }
@@ -183,8 +272,8 @@
             display: inline-block;
             border-radius: 25px;
             background: #fff;
-            border: 2px solid #34bc9b;
-            color: #34bc9b;
+            border: 2px solid #238755;
+            color: #238755;
             z-index: 2;
             position: absolute;
             left: 0;
@@ -193,7 +282,7 @@
         }
 
         .stepper .completed .round-tab {
-            background: #34bc9b;
+            background: #238755;
         }
 
         .stepper .completed .round-tab::after {
@@ -209,12 +298,12 @@
 
         .stepper .active .round-tab {
             background: #fff;
-            border: 2px solid #34bc9b;
+            border: 2px solid #238755;
         }
 
         .stepper .active .round-tab:hover {
             background: #fff;
-            border: 2px solid #34bc9b;
+            border: 2px solid #238755;
         }
 
         .stepper .active .round-tab::after {
@@ -228,7 +317,7 @@
         }
 
         .stepper .disabled .round-tab:hover {
-            color: #4dd3b6;
+            color: #238755;
             border: 2px solid #a6dfd3;
         }
 
@@ -240,28 +329,37 @@
 
         input[type="text"],
         textarea
+
         /* .form-style-8 select  */
-        {
+            {
             box-sizing: border-box;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
-            /* outline: none; */
+            outline: none;
             display: block !important;
             width: 100%;
             padding: 2px !important;
             border: none !important;
             border-radius: 0 !important;
             border-bottom: 1px solid black !important;
-            background: transparent; 
-            margin-bottom: 5px;
+            background: transparent;
+            margin-bottom: 24px;
             font: 16px Arial, Helvetica, sans-serif;
+
+            transition: all 0.25s;
             /* height: 45px; */
         }
-        textarea{
-            resize:none;
+
+        input[type="text"]:hover,
+        textarea:hover {
+            border-bottom: 3px solid #238755 !important;
+        }
+
+        textarea {
+            resize: none;
             overflow: hidden;
         }
-        
+
         .list-inline {
             margin-top: 20px;
         }
@@ -270,9 +368,31 @@
             margin-bottom:
         } */
 
-</style>
+        .next-step,
+        .prev-step,
+        .submit_button {
+            height: 36px;
+            padding: 0;
+            width: 96px;
+            font-weight: 700;
+            background: #238755;
+            color: white !important;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+        }
 
+        .prev-step {
+            background: #E0DDCF;
+            color: white;
+        }
 
+        .next-step:hover,
+        .prev-step:hover,
+        .submit_button:hover {
+            background: #1D0F2B;
+            color: white;
+        }
     </style>
 
 </head>
@@ -316,7 +436,8 @@
                                 </a>
                             </li>
                         </ul>
-                        <form action="add_new_car.php" method="post" name="form" id="form">
+                        <form action="add_new_car.php" method="post" enctype="multipart/form-data" name="form"
+                            id="form">
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
 
@@ -327,15 +448,15 @@
                                             </small>
                                         </h1>
                                     </div>
-                                    
+
                                     <h3 class="h2">
                                         Enter car's manufacturer and model
                                     </h3>
-                                                                    
+
                                     <input type="text" name="manufacturer" placeholder="Manufacturer" />
-                                                           
+
                                     <input type="text" name="model" placeholder="Model" />
-                                    
+
                                     <ul class="list-inline pull-right">
                                         <li>
                                             <a class="btn btn-primary next-step">Next</a>
@@ -343,16 +464,39 @@
                                     </ul>
                                 </div>
                                 <div class="tab-pane fade" role="tabpanel" id="stepper-step-2">
-                                    <h3 class "h2">2. Enter Payment Information</h3>
-                                    <p>This is step 2</p>
+
+                                    <div class="container-fluid m_uploader">
+                                        <div class="row header">
+                                            <div class="col-md-9">
+                                                <h3> Upload car Images </h3>
+                                                <h4>
+
+                                                    <small>
+                                                        you can skip this process and add later
+                                                    </small>
+                                                </h4>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="file-upload btn btn-primary">
+                                                    <span>+</span>
+                                                    <input type="file" class="form-control upload" id="images"
+                                                        name="images[]" onchange="preview_images();" multiple />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row" id="image_preview"></div>
+                                    </div>
+
                                     <ul class="list-inline pull-right">
                                         <li>
                                             <a class="btn btn-default prev-step">Back</a>
                                         </li>
                                         <li>
-                                            <a class="btn btn-primary next-step">Next</a>
+                                            <a class="btn btn-default next-step">Next</a>
                                         </li>
                                     </ul>
+
                                 </div>
                                 <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
 
@@ -365,10 +509,8 @@
                                             <a class="btn btn-default prev-step">Back</a>
                                         </li>
                                         <li>
-                                            <a class="btn btn-default cancel-stepper">Cancel Payment</a>
-                                        </li>
-                                        <li>
-                                            <a class="btn btn-primary next-step">Submit Payment</a>
+                                            <input class="btn btn-warning submit_button" type="submit" name="submit"
+                                                value="Submit" />
                                         </li>
                                     </ul>
 
