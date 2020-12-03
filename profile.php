@@ -4,6 +4,8 @@
 
     //echo 'hi';
 
+    $user_id = $_SESSION["user"]["USER_ID"];
+
     $predicted = false;
 
     if(isset($_POST['submit']))
@@ -48,7 +50,7 @@
 
         <div id="info" class='right-container'>
             <header>
-                <h1>Result</h1>
+                <h1>Profile of user <?php echo $user_id; ?> </h1>
             </header>
             <footer>
                 <form action="prediction_result.php" method="post" name="form" id="form" >                 

@@ -14,7 +14,7 @@ body {
 .car_detail header {
     padding: 3px;
     /* height: 64px; */
-    background-color: darksalmon;
+    /* background-color: darksalmon; */
     margin-bottom: 16px;
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,7 @@ body {
 }
 
 .car_detail header .buttons {
-    background: deeppink;
+    /* background: deeppink; */
     min-width: 224px;
     padding: 5px;
     display: flex;
@@ -45,33 +45,103 @@ body {
     width: 100%;
     margin-top: 15px;
     padding: 5px !important;
+    font-size: 16px;
 }
 
 .post_comment {
     display: flex;
     flex-flow: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     /* background-color: fuchsia; */
     width: 100%;
     height: 64px;
 }
 
-.horizontal {
+.post_comment .horizontal {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 
-.horizontal #comment {
-    width: 80%;
-    margin-right: 10px;
-}
-
 .post_comment input,
 label {
     width: 100%;
+    margin-right: 10px;
+    margin-left: 0;
+    ;
+}
+
+.post_reply {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: fuchsia; */
+    width: 100%;
+    max-height: 64px;
+    margin: 10px;
+}
+
+.post_reply .horizontal {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between
+}
+
+.post_reply input,
+label {
+    width: 80%;
+    margin-right: 5px;
+}
+
+.characterists {
+    font-weight: 800;
+}
+
+.description {
+    background: blue;
+    padding: 10px;
+    margin-top: 32px;
+}
+
+.description_text {
+    font-size: 16px !important;
+    font-weight: 600;
+}
+
+.comments {
+    padding: 12px 24px;
+}
+
+.comment {
+    /* background-color: tomato; */
+    padding: 10px;
+    padding-left: 0;
+    font-size: 14px;
+}
+
+.comment a {
+    /* background-color: tomato; */
+    /* padding: 10px; */
+    font-size: 10px;
+}
+
+.comment .reply {
+    background-color: violet;
+    padding: 10px;
+    margin-left: 48px;
+}
+
+#post_reply,
+#post_comment {
+    background-color: red;
+    width: 10px !important;
+    /* font-size: 18px; */
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 .left_part ul {
@@ -96,7 +166,7 @@ label {
     text-decoration: none;
     -webkit-transition: color .2s ease-in-out;
     transition: color .2s ease-in-out;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .left_part a::before {
@@ -112,7 +182,7 @@ label {
 .left_part a::after {
     -webkit-box-ordinal-group: 3;
     order: 2;
-    content: "p." attr(data-page);
+    content: "" attr(data-page);
 }
 
 .left_part a:hover,

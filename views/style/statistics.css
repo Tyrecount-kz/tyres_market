@@ -20,43 +20,45 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    font-size: 23px;
     /* background: red; */
 }
 
 .count-title {
-    font-size: 10px;
+    font-size: 15px;
     font-weight: normal;
     margin-top: 5px;
     margin-bottom: 0;
     text-align: center;
     font-weight: bold;
-    color: #fff;
+    color: black;
 }
 
 .stats-text {
-    font-size: 10px;
+    font-size: 13px;
     font-weight: normal;
     margin-top: 5px;
     margin-bottom: 0;
     text-align: center;
-    color: #fff;
+    color: black;
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.stats-line-black {
+
+/* .stats-line-black {
     margin: 5px auto 0;
     width: 55px;
     height: 2px;
     background-color: #fff;
-}
+} */
 
 .stats-icon {
-    font-size: 24px;
+    /* font-size: 50px; */
     margin: 0 auto;
     float: none;
     display: table;
-    color: #fff;
+    color: black
 }
 
 
