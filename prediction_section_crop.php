@@ -91,8 +91,8 @@
                                     echo 'value="'.$query["FIRST_NAME"].'" ';
                                     // echo 'value="'.$query["FIRST_NAME"].'" '; 
                                 }
-                            ?> required="required" id='release_year' name="release_year" placeholder="release_year"
-                        type='number'>
+                            ?> required="required" id='release_year' name="release_year" placeholder="year"
+                        type='number' min="1900" max="2021">
                 </div>
 
                 <div class='form_block'>
@@ -123,11 +123,11 @@
             </div>
 
                 <div class='form_block'>
-                    <label for='color'>color</label>
+                    <label class="color_label" for='color'>color</label>
                     <input <?php 
                                 if( $query ){
                                     echo 'value="'.$query["FIRST_NAME"].'" ';
-                                    // echo 'value="'.$query["FIRST_NAME"].'" '; 
+                                    // echo 'value="'.$query["COLOR"].'" '; 
                                 }
                             ?> required="required" id='color' name="color" placeholder='color' type='color'>
                 </div>

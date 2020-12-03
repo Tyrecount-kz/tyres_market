@@ -11,11 +11,23 @@
     
     function add_new_car($user_id){
 
+        $company = $_POST['company'];
+        $model = $_POST['model'];
+
+        $shell = $_POST['shell'];
+        $year = $_POST['year'];
+        $mileage = $_POST['mileage'];
+        $rudder = $_POST['rudder'];
+        $color = $_POST['color'];
+        $gear = $_POST['gear'];
+        $custom_clear = $_POST['custom_clear'];
+        $engine_volume = $_POST['engine_volume'];
         $city = $_POST['city'];
-        
+        $transmission = $_POST['transmission'];
+
         include 'connect.php';
     
-        // query
+        // Add new car
         $query = "INSERT INTO CARS (car_id, user_id, city) VALUES (default, '$user_id', '$city')";
         // echo $query;
         // send me car_id
@@ -25,13 +37,7 @@
 
         oci_commit($conn);
 
-        $car_id = -1;
-        header("location: prediction_section.php?car_id=$car_id");
-        /*
-        else {
-            echo '<p id="failed">Login Failed !</p>';
-        }*/
-
+        // Add images -> file path
         // echo 'uploading';
         // var_dump($_FILES["images"]);
 
@@ -49,6 +55,15 @@
             }
             
         }
+
+        // get car_id
+        $car_id = -1;
+        // Add new query , predict , show result
+        
+
+        header("location: prediction_result.php?car_id=$car_id");
+
+        
 
     }
 
@@ -327,7 +342,8 @@
 
         /*form*/
 
-        input[type="text"],
+        input[type="text"], 
+        input[type="number"],
         textarea
 
         /* .form-style-8 select  */
@@ -350,9 +366,11 @@
             /* height: 45px; */
         }
 
-        input[type="text"]:hover,
+        input[type="text"]:hover, 
+        input[type="number"]:hover,
         textarea:hover,
-        input[type="text"]:focus,
+        input[type="text"]:focus, 
+        input[type="number"]:focus,
         textarea:focus {
             border-bottom: 5px solid #238755 !important;
         }
@@ -464,7 +482,7 @@
                                         Enter car's manufacturer and model
                                     </h3>
 
-                                    <input class="first_info" type="text" name="manufacturer" placeholder="Manufacturer" />
+                                    <input class="first_info" type="text" name="company" placeholder="Manufacturer" />
 
                                     <input class="first_info" type="text" name="model" placeholder="Model" />
 
@@ -521,7 +539,7 @@
                                         </li>
                                         <li>
                                             <input class="btn btn-warning submit_button" type="submit" name="submit"
-                                                value="Submit" />
+                                                value="Add car" />
                                         </li>
                                     </ul>
 

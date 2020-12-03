@@ -319,6 +319,21 @@ body {
     width: 70px;
 }
 
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 178px;
+    height: 32px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
 .radio-container input[type="radio"] {
     display: none;
 }
