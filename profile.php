@@ -51,6 +51,7 @@
         <div id="info" class='right-container'>
             <header>
                 <h1>Profile of user <?php echo $user_id; ?> </h1>
+                <a href="logout.php"> Logout </a>
             </header>
             <footer>
                 <form action="prediction_result.php" method="post" name="form" id="form" >                 

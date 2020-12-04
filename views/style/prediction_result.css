@@ -5,9 +5,13 @@ body {
 .left_part ul {
     width: 100%;
     margin: auto;
+    margin-top: 15px;
     padding: 10px;
     list-style: none;
-    background: blue;
+    /* background: blue; */
+    color: black;
+    box-shadow: -6px 5px 15px 5px rgba(0, 0, 0, 0.42);
+    border-radius: 15px;
     font-size: 13px;
     font-weight: 800;
     height: 200px;
@@ -18,8 +22,7 @@ body {
 }
 
 .left_part a {
-    display: -webkit-box;
-    display: flex;
+    =display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     flex-flow: row nowrap;
@@ -29,6 +32,7 @@ body {
     -webkit-transition: color .2s ease-in-out;
     transition: color .2s ease-in-out;
     font-size: 14px;
+    color: black;
 }
 
 .left_part a::before {
@@ -39,12 +43,15 @@ body {
     order: 1;
     background: left bottom/contain repeat-x url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3IDIiPjxjaXJjbGUgZmlsbD0iI2ZmZiIgY3g9IjMuNSIgY3k9IjEiIHI9IjEiLz48L3N2Zz4=);
     content: '';
+    color: black !important;
+    /* background-color: black; */
 }
 
 .left_part a::after {
     -webkit-box-ordinal-group: 3;
     order: 2;
     content: "" attr(data-page);
+    color: black;
 }
 
 .left_part a:hover,
@@ -57,10 +64,12 @@ body {
 
 .left_part a {
     color: inherit;
+    color: black;
 }
 
 .left_part p {
     font-size: 14px;
+    color: black;
 }
 
 .m_uploader {
@@ -75,19 +84,34 @@ body {
 }
 
 .gallery {
-    /* background: #000; */
-    min-height: 128px;
+    border-radius: 15px;
+    min-height: 64px;
     max-height: 256px;
+    margin-top: 32px;
+    padding: 10px;
+    padding-top: 48px;
+    box-shadow: -6px 5px 15px 5px rgba(0, 0, 0, 0.42);
 }
 
 #image_preview {
     display: flex;
     /* justify-content: space-around; */
     align-items: center;
-    background: red;
+    /* background: red; */
+    border-radius: 5px;
+    /* border: solid 1px black; */
     max-width: 300px;
     max-height: 300px;
-    /* padding: 20px; */
+    box-shadow: -6px 5px 15px 5px rgba(0, 0, 0, 0.42);
+    padding: 5px;
+    margin-bottom: 16px;
+}
+
+.s_button {
+    height: 32px;
+    padding: 0;
+    color: white !important;
+    background-color: #238755;
 }
 
 #image_preview .row {
@@ -95,7 +119,7 @@ body {
 }
 
 .file-upload {
-    margin-top: -96px;
+    margin-top: -195px;
     height: 32px;
     width: 32px;
     position: relative;
@@ -132,7 +156,14 @@ body {
     position: relative;
     /* border-radius: 100%; */
     border: 6px solid #1D0F2B;
+    border-radius: 5px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.uploads_i {
+    /* margin-top: 10px; */
+    border-radius: 5px;
+    border: solid 1px black;
 }
 
 .uploads_i .column {
@@ -190,7 +221,92 @@ body {
 }
 
 #myChart {
-    /* max-width: 340px; */
+    max-height: 270px;
+    max-width: 270px;
+    margin: 0 auto;
+    margin-bottom: 32px;
     /* z-index: 2; */
     /* background: red; */
+    box-shadow: -6px 5px 15px 5px rgba(0, 0, 0, 0.42);
+    padding: 10px;
+    border-radius: 15px;
+    ;
+}
+
+
+/* .s_button {
+    margin-
+} */
+
+.main_info {
+    box-shadow: -6px 5px 15px 5px rgba(0, 0, 0, 0.42);
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 15px;
+    /* background-color: firebrick; */
+    height: 96px;
+}
+
+input,
+label {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.set {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.set {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.set input[type="text"] {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* border-radius: 4px; */
+    min-height: 38px;
+    /* width: 8px; */
+    line-height: 38px;
+    /* padding-left: 5px; */
+}
+
+input[type="text"],
+input[type="number"],
+textarea
+/* .form-style-8 select  */
+
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block !important;
+    width: 100%;
+    padding: 2px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid black !important;
+    background: transparent;
+    font: 16px Arial, Helvetica, sans-serif;
+    margin-bottom: 12px;
+    transition: all 0.25s;
+    /* height: 45px; */
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover,
+textarea:hover,
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-bottom: 5px solid #238755 !important;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
 }

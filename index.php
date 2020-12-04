@@ -1,8 +1,6 @@
 
 <?php session_start(); ?>
-<?php require_once('header.php')?>
-<?php require_once('prediction_section.php')?>
-<?php require_once('profile.php')?>
+
 <?php 
 
     // include('logout.php');
@@ -13,6 +11,7 @@
     }
     else{
         echo 'authorized';
+        header("location: profile.php");
     }
 
 ?>

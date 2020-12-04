@@ -3,9 +3,11 @@
 <?php
 
     // var_dump($_GET);
-
-    $queryID = $_GET["queryID"];
-    echo $queryID;
+    $queryID = 0;
+    if( isset( $_GET["queryID"] ) ){
+        $queryID = $_GET["queryID"];
+        echo $queryID;
+    }
 
     $query_id = -1;
     if( isset( $_GET['query_id'] ) ){
@@ -54,8 +56,13 @@
         array_push( $images, $placeholder_image );
     }
 
-    include 'add_new_photos.php';
-    add_new_photos($car_id);
+    if( isset($_POST["upload_images"]) ) {
+        // Add images -> file path
+        // echo 'uploading';
+        // var_dump($_FILES["images"]);
+        include 'add_new_photos.php';
+        add_new_photos($car_id);
+    }
 
 ?>
 
@@ -98,6 +105,7 @@
     <link href="views/style/statistics.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
 
     <link href="views/style/prediction_result.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
+    <link href="views/style/prediction.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
 
     <script>
         function preview_images() {
@@ -245,7 +253,7 @@
                     <!-- Statistics -->
 
                     <?php
-                        if( $in_market == 0 ){
+                        if( $in_market == 1 ){
                     ?>
 
                     <section id="statistic" class="statistic-section one-page-section">
@@ -276,6 +284,18 @@
                             </div>
                         </div>
                     </section>
+
+                    <div class="main_info set">
+                        <div class="form_block">
+                            <label for='Price'>Price</label>
+                            <input <?php 
+                                // if( $query ){
+                                    // echo 'value="'.$query["FIRST_NAME"].'" ';
+                                    // echo 'value="'.$query["Price"].'" '; 
+                                // }
+                            ?> required="required" id='Price' name="Price" placeholder='Price' type='number'>
+                        </div>
+                    </div>
 
                     <?php
                         }
@@ -312,19 +332,22 @@
                                 show_uploaded_images($images, $car_id);
                             ?>
                         </div>
-
-                        <div class="m_uploader">
-                            <div class=" header">
-                                <div class="file-upload btn btn-primary">
-                                    <span>+</span>
-                                    <input type="file" class="form-control upload" id="images" name="images[]"
-                                        onchange="preview_images();" multiple />
+                        <form action="prediction_result.php" method="post" enctype="multipart/form-data" name="form"
+                        id="form">
+                            <div class="m_uploader">
+                                <div class=" header">
+                                    <div class="file-upload btn btn-primary">
+                                        <span>+</span>
+                                        <input type="file" class="form-control upload" id="images" name="images[]"
+                                            onchange="preview_images();" multiple />
+                                    </div>
                                 </div>
+                                <div class="container-fluid">
+                                    <div class="row" id="image_preview"></div>
+                                </div>
+                                <input type="submit" class="btn btn-primary btn-sm s_button" name="upload_images" value="Upload"/>
                             </div>
-                            <div class="container-fluid">
-                                <div class="row" id="image_preview"></div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
 
                 </div>
