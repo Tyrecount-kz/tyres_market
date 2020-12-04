@@ -2,6 +2,8 @@
 
 <?php
 
+    include 'fake_data.php';
+
     // var_dump($_GET);
     $queryID = 0;
     if( isset( $_GET["queryID"] ) ){
@@ -350,6 +352,15 @@
                         </form>
                     </div>
 
+                    <div class="modifiers">
+                        <a href="add_mofication.php?car_id=<?php echo $car_id; ?>" class="btn btn-sm btn-primary">
+                            New query
+                        </a>
+                        <a href="add_new_car.php" class="btn btn-sm btn-warning">
+                            Add new Car
+                        </a>
+                    </div>
+
                 </div>
             </div>
 
@@ -370,7 +381,6 @@
     </div>
 
 
-    <?php require_once('overlay_queries.php') ?>
 
 </body>
 

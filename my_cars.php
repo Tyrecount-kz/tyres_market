@@ -2,28 +2,45 @@
 
 <?php
 
-    $user_id = $_SESSION["user"]["USER_ID"];
-    $cars = fetch_cars($user_id);
+    include 'fake_data.php';
 
-    function fetch_cars($user_id){
-        include 'connect.php';
+    $user_id = $_SESSION["user"]["user_id"];
+    // $cars = fetch_cars($user_id);
+
+    // function fetch_cars($user_id){
+    //     include 'connect.php';
     
-        // query
-        // $query = "select * from cars where query_id = '$query_id'";
-        $query = "select * from users";
-        // echo $query;
+    //     // query
+    //     // $query = "select * from cars where query_id = '$query_id'";
+    //     $query = "select * from users";
+    //     // echo $query;
 
-        $stid = oci_parse($conn, $query);
-        oci_execute($stid, OCI_DEFAULT);
+    //     $stid = oci_parse($conn, $query);
+    //     oci_execute($stid, OCI_DEFAULT);
 
-        $cars = array();
+    //     $cars = array();
 
-        while( ($row = oci_fetch_array($stid, OCI_BOTH)) ){
-            array_push($cars, $row);
+    //     while( ($row = oci_fetch_array($stid, OCI_BOTH)) ){
+    //         array_push($cars, $row);
+    //     }
+
+    //     return $cars;
+    // }
+
+    $my_cars = array();
+    foreach($cars as $car){
+        if( $car["user_id"] == $user_id ){
+            $new_car = $car;
+            foreach($queries as $query){
+                if( $new_car["car_id"] == $query["car_id"] ){
+                    $new_car["query"] = $query;
+                    array_push($my_cars, $new_car);    
+                    break;   
+                }
+            }
         }
-
-        return $cars;
     }
+
 
 ?>
 
@@ -73,14 +90,14 @@
 
             <?php
                 $index = 1;
-                foreach($cars as $car){
+                foreach($my_cars as $car){
                     if( $index % 3 == 0 )
                         echo "<div class='row'>";
             ?>
 
                 <div class="car col-md-3 col-lg-3">
-                    <h3> <?php echo $car["FIRST_NAME"]; ?> </h3>
-                    <a href="car_detail.php?car_id=<?php echo $car["USER_ID"]; ?>"> review </a>
+                    <h3> <?php echo $car["query"]["car_model"]; ?> </h3>
+                    <a href="prediction_result.php?car_id=<?php echo $car["car_id"]; ?>"> review </a>
                 </div>
                 
             <?php 

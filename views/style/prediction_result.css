@@ -310,3 +310,20 @@ textarea {
     resize: none;
     overflow: hidden;
 }
+
+.modifiers {
+    box-shadow: -6px 5px 15px 5px rgba(0, 0, 0, 0.42);
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 15px;
+    /* background-color: firebrick; */
+    height: 64px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modifiers .btn {
+    height: 32px;
+    ;
+}
