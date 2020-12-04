@@ -117,7 +117,7 @@
             overflow: hidden;
 
             border-radius: 3px !important;
-            background: #ff0000;
+            background: #238755;
             text-transform: uppercase;
             font-size: 40px;
             border: none !important;

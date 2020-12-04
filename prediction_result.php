@@ -4,6 +4,9 @@
 
     // var_dump($_GET);
 
+    $queryID = $_GET["queryID"];
+    echo $queryID;
+
     $query_id = -1;
     if( isset( $_GET['query_id'] ) ){
         $query_id = $_GET['query_id'];
@@ -27,7 +30,7 @@
         echo '<div class="php_log">DEL '.$_POST['id'].'</div>';
     }
 
-    $in_market = false;
+    $in_market = true;
     $views = 0;
     $interested = 0;
 
@@ -242,7 +245,7 @@
                     <!-- Statistics -->
 
                     <?php
-                        if( $in_market == 1 ){
+                        if( $in_market == 0 ){
                     ?>
 
                     <section id="statistic" class="statistic-section one-page-section">
@@ -262,6 +265,14 @@
                                         <!-- <p class="stats-text">Interested</p> -->
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="counter">
+                                        <a href="delete_car.php?car_id=<?php echo $car_id; ?>">    
+                                            <i class="fa fa-trash-o fa-x stats-icon"></i>
+                                        </a>    
+                                        <h2 class="timer count-title count-number"></h2>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -271,7 +282,22 @@
                         else{
                     ?>
                     <div class="add_to_market">
-                        <button> Add to market </button>
+                        <?php
+                            if( $query_id == $queryID ) {
+                        ?>
+                            <a href="to_market.php?delete=1?query_id=<?php echo $queryID; ?>?car_id=<?php echo $car_id ?>">    
+                                <i class="fa fa-minus fa-x stats-icon"></i>
+                            </a>
+                        <?php
+                            }
+                            else{
+                        ?>
+                            <a href="to_market.php?delete=0?query_id=<?php echo $queryID; ?>?car_id=<?php echo $car_id ?>">    
+                                <i class="fa fa-plus fa-x stats-icon"></i>
+                            </a>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <?php
                         }    
