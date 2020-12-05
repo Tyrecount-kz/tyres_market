@@ -8,7 +8,7 @@
 
         // make query delete photo
 
-        header('location: prediction_result.php?car_id='.$car_id);
+        header('location: edit_post.php?car_id='.$car_id);
     }
 
 ?>

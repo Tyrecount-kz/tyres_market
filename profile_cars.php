@@ -2,6 +2,8 @@
     include 'fake_data.php';
 ?>
 
+<h1> My cars </h1>
+
 <div class="row cars" id="added_cars">
 
     <?php
@@ -19,7 +21,7 @@
             <p class="card-text">';
 
         echo '<a href="prediction_result.php?car_id='.$car["car_id"].'"> review '.$car["car_id"].'</a>';
-
+        echo '<br><small>'.$car["city"].'</small>';
         echo'</p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">';
@@ -28,10 +30,13 @@
             <a href="post_detail.php?post_id='.$car["car_id"].'">View</a></button>';
         echo '<button type="button" 
             class="btn btn-sm btn-outline-secondary"> 
-            <a href="prediction_result.php?post_id='.$car["car_id"].'">Edit</a></button>';
-            
+            <a href="edit_post.php?post_id='.$car["car_id"].'">Edit</a></button>';
+        echo '<button type="button" 
+        class="btn btn-sm btn-outline-secondary"> 
+        <a href="delete_car.php?post_id='.$car["car_id"].'">Delete</a></button>';
+
         echo '</div>
-            <small class="text-muted">9 mins</small>
+            <small class="text-muted"> views '.$car["views"].'</small>
             </div>
             </div>
             </div>

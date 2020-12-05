@@ -18,4 +18,15 @@
         }
     }
 
+    function get_photos($post_id){
+        
+        $images = array();
+        for($i = 1; $i<=5; $i++){
+            array_push($images, 'https://www.osdla.com/wp-content/uploads/2014/10/placeholder-1.png');
+        }
+
+        return $images;
+
+    }
+
 ?>

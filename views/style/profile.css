@@ -61,6 +61,7 @@ textarea:focus {
 }
 
 .cars {
+    padding: 10px;
     background: lightblue;
 }
 
@@ -77,3 +78,6 @@ textarea:focus {
     color: white;
     text-decoration: none;
 }
+
+
+/*  be careful  */
