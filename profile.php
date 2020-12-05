@@ -2,12 +2,48 @@
 
 <?php 
     include 'fake_data.php';
-    include 'connect.php';
 
     //echo 'hi';
 
     $user_id = $_SESSION["user"]["user_id"];
     $email = $_SESSION["user"]["email"];
+
+    function get_user_data($user_id){
+        include 'connect.php';
+
+        $query = '
+        declare 
+            userInfo information1.userInfoList;
+            a users.first_name%type;
+            b users.last_name%type;
+            c users.phone%type;
+        begin 
+            information1.getUserInfo(:a, userInfo);
+            :b := userInfo(1).first_name;
+            :c := userInfo(1).last_name;
+            :d := userInfo(1).phone;
+        end;';
+
+        $stid = oci_parse($conn, $query);
+        
+        $user_data = array();
+
+		oci_bind_by_name($stid, ':a', $user_id);
+		oci_bind_by_name($stid, ':b', $user_data['first_name'], 150);
+		oci_bind_by_name($stid, ':c', $user_data['last_name'], 150);
+		oci_bind_by_name($stid, ':d', $user_data['phone'], 150);
+    
+        oci_execute($stid);
+        
+        // var_dump($first_name);
+        var_dump($user_data);
+        return $user_data;
+    }
+
+    // get_user_data($user_id);
+    $user_data = get_user_data(1);
+    // var_dump($user_data);
+
 
     function get_data(){
 
@@ -59,11 +95,11 @@
         <div class="row">
             <div class="col-6">
                 <ul class="main_info">
-                    <li> <?php echo $users[$user_id]["first_name"].' '.$users[$user_id]["last_name"]; ?>  </li>
-                    <li> Email <?php echo $email; ?> </li>
-                    <li> Phone <?php echo $email; ?> </li>
-                    <li> <a href="my_cars.php"> Number of cars in market <?php echo 1; ?> </a></li>
-                    <li> <a href="wishlist.php"> Number of cars in wishlist <?php echo 1; ?> </a> </li>
+                    <li> <b><?php echo $user_data["first_name"].' '.$user_data["last_name"]; ?> </b> </li>
+                    <li> <b>Email: </b> <?php echo $email; ?> </li>
+                    <li> <b>Phone: </b> <?php echo $user_data['phone']; ?> </li>
+                    <li> <a href="profile.php#added_cars"> Number of cars in market <?php echo 1; ?> </a></li>
+                    <li> <a href="#"> Number of cars in wishlist <?php echo 1; ?> </a> </li>
                     <li> <a href="edit_profile.php"> edit profile </a> </li>
                     <li> <a href="add_new_car.php"> add car </a> </li>
                 </ul>

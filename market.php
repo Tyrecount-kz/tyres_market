@@ -2,46 +2,7 @@
 
 <?php
 
-    $user_id = $_SESSION["user"]["USER_ID"];
-    $cars = fetch_cars($user_id);
-
-    include 'get_variable.php';
-    $start_from = get_variable("start_from");
-    if( $start_from == null ){
-        $start_from = 0;
-    }
-
-    // var_dump($start_from);
-
     
-    include 'fetch_item.php';
-    // use START_FROM
-    $query = "select count(*) as CARS_LEN from users";
-    $cars_len = fetch_item($query);
-    $cars_len = $cars_len["CARS_LEN"];
-
-
-    // var_dump( $cars_len );
-
-    function fetch_cars($user_id){
-        include 'connect.php';
-    
-        // query
-        // $query = "select * from cars where query_id = '$query_id'";
-        $query = "select * from users";
-        // echo $query;
-
-        $stid = oci_parse($conn, $query);
-        oci_execute($stid, OCI_DEFAULT);
-
-        $cars = array();
-
-        while( ($row = oci_fetch_array($stid, OCI_BOTH)) ){
-            array_push($cars, $row);
-        }
-
-        return $cars;
-    }
 
 ?>
 

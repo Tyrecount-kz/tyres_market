@@ -16,9 +16,14 @@
     // fetch post info + also user info etc.
     // var_dump($start_from);
     
+    $company = "T"; 
+    $model = "T";
+
     $in_wishlist = false;
     $views = 0;
     $interested = 0;
+
+    $date = "12: 12: 12";
 
     $description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis suscipit cumque, est,
     explicabo voluptates numquam deleniti et consectetur nostrum voluptatem esse pariatur aspernatur
@@ -73,7 +78,7 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-<!-- 
+    <!-- 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
 
@@ -91,11 +96,12 @@
 
     <link href="views/style/statistics.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <!-- main -->
     <link href="views/style/car_detail.css?ver=<?php echo rand(111,999)?>" rel="stylesheet">
-    
+
 
 </head>
 
@@ -104,15 +110,19 @@
 
     <div class='signup-container'>
 
-        <div id="cars" class="container right-container car_detail" >
+        <div id="cars" class="container right-container car_detail">
 
             <header>
                 <?php require_once('go_back.php'); ?>
-                
-                <h1>hello</h1>
+
+                <h1>
+                    <?php echo $company.' '.$model; ?>
+                </h1>
+                <!-- <br> -->
 
                 <section id="statistic" class="statistic-section one-page-section">
                     <div class="container">
+
                         <div class="row text-center">
                             <div class="col-xs-12 col-md-4">
                                 <div class="counter"><i class="fa fa-eye fa-x stats-icon"></i>
@@ -134,20 +144,20 @@
                                     <?php
                                         if( $in_wishlist == false ){
                                     ?>
-                                        <a href="add_to_wishlist.php?post_id=<?php echo $post_id; ?>">    
-                                            <i class="fa fa-heart-o fa-x stats-icon"></i>
-                                        </a>
+                                    <a href="add_to_wishlist.php?post_id=<?php echo $post_id; ?>">
+                                        <i class="fa fa-heart-o fa-x stats-icon"></i>
+                                    </a>
                                     <?php
                                        }
                                        else{
                                     ?>
-                                        <a href="add_to_wishlist.php?is_delete=1?post_id=<?php echo $post_id; ?>">    
-                                            <i class="fa fa-heart fa-x stats-icon"></i>
-                                        </a>
+                                    <a href="add_to_wishlist.php?is_delete=1?post_id=<?php echo $post_id; ?>">
+                                        <i class="fa fa-heart fa-x stats-icon"></i>
+                                    </a>
                                     <?php
                                         }
                                     ?>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -158,7 +168,11 @@
 
             <div class="row">
 
+
                 <div class="col-lg-6 left_part">
+                    <small>
+                        <?php echo 'Created date: '.$date; ?>
+                    </small>
                     <ul class="characterists">
                         <?php 
                             foreach($characteristics as $key => $value) {
@@ -183,16 +197,17 @@
                         start_carousel($images);
 
                     ?>
-                        
+
                     <footer class='comments_section'>
-                        
+
                         <form action="<?php echo $link ?>" method="post" name="form" id="form">
                             <div class='post_comment'>
                                 <label for='comment'>Comments</label>
                                 <div class="horizontal">
                                     <input required="required" id='comment' name="comment" placeholder="comment"
                                         type='text'>
-                                    <input required="required" id="post_comment" type="submit" name="post_comment" value="Comment">
+                                    <input required="required" id="post_comment" type="submit" name="post_comment"
+                                        value="Comment">
                                 </div>
                             </div>
                         </form>
@@ -201,50 +216,52 @@
                             <?php
                                 foreach($comments as $comment){
                             ?>
-                                <div class="comment">
+                            <div class="comment">
 
-                                    <div class="comment_parent">
-                                        <?php echo '<a href="profile.php?user_id='.$comment->author_id.'">'.$comment->get_email().'</a>' ?> 
-                                        <!-- <a href="profile.php"> USERNAME </a> -->
-                                        <p> <?php echo $comment->text ?> </p>
+                                <div class="comment_parent">
+                                    <?php echo '<a href="profile.php?user_id='.$comment->author_id.'">'.$comment->get_email().'</a>' ?>
+                                    <!-- <a href="profile.php"> USERNAME </a> -->
+                                    <p> <?php echo $comment->text ?> </p>
 
                                     <form action="<?php echo $link ?>" method="post" name="form" id="form">
                                         <div class='post_reply'>
                                             <div class="horizontal">
                                                 <input required="required" id='reply' name="reply" placeholder="reply"
                                                     type='text'>
-                                                <input required="required" id="post_reply" type="submit" name="post_reply" value="Reply">
-                                                <input required="required" id="comment_id" type="hidden" name="comment_id" value="<?php echo $comment->comment_id ?>">
+                                                <input required="required" id="post_reply" type="submit"
+                                                    name="post_reply" value="Reply">
+                                                <input required="required" id="comment_id" type="hidden"
+                                                    name="comment_id" value="<?php echo $comment->comment_id ?>">
                                             </div>
                                         </div>
                                     </form>
 
-                                        <div class="comment_replies">
-                                                            
-                                            <?php
+                                    <div class="comment_replies">
+
+                                        <?php
                                                 // foreach($comment->get_replies() as $reply){
                                                 foreach($comments as $reply){
                                             ?>
-                                                <div class="reply">
-                                                    <?php echo '<a href="profile.php?user_id='.$reply->author_id.'">'.$comment->get_email().'</a>' ?> 
-                                                    <!-- <a href="profile.php"> USERNAME </a> -->
-                                                    <p> <?php echo $reply->text ?> </p>
-                                                </div>
-                                            <?php
+                                        <div class="reply">
+                                            <?php echo '<a href="profile.php?user_id='.$reply->author_id.'">'.$comment->get_email().'</a>' ?>
+                                            <!-- <a href="profile.php"> USERNAME </a> -->
+                                            <p> <?php echo $reply->text ?> </p>
+                                        </div>
+                                        <?php
                                                 }
                                             ?>
-
-                                        </div>
 
                                     </div>
 
                                 </div>
+
+                            </div>
                             <?php
                                 }
                             ?>
                         </div>
                     </footer>
-                
+
                 </div>
 
             </div>

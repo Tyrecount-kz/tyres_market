@@ -12,6 +12,6 @@
 
     echo 'delete';
     
-    header("location: prediction_result.php?car_id=".$car_id);
+    header("location: profile.php");
 
 ?>

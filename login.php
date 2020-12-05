@@ -2,7 +2,6 @@
 
 <?php
 
-    
     include 'fake_data.php';
     //echo 'hi';
 
@@ -20,7 +19,7 @@
             
             // encrypt the password
             $password = $_POST['password'];
-            $password = md5($password);
+            // $password = md5($password);
 
             include 'connect.php';
 
@@ -35,7 +34,7 @@
             
             if($email === $row['EMAIL'] && $password === $row['PASSWORD']) {
                 $_SESSION['user'] = $row;
-                echo $row['FIRST_NAME'];
+                // echo $row['FIRST_NAME'];
                 
                 header('location: profile.php');
             }
