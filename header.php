@@ -44,10 +44,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Market <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="market.php">Market <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sell a car</a>
+                        <a class="nav-link" href="add_new_car.php">Sell a car</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -55,11 +55,11 @@
                             Profile
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Staistics </a>
-                            <a class="dropdown-item" href="#">Notifications </a>
+                            <a class="dropdown-item" href="profile.php">Staistics </a>
+                            <a class="dropdown-item" href="profile.php">Notifications </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="logout.php">Logout</a>
-                            <a class="dropdown-item" href="#">Added cars</a>
+                            <a class="dropdown-item" href="profile.php#added_cars">Added cars</a>
                         </div>
                     </li>
                 </ul>

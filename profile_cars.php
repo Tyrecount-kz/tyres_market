@@ -2,7 +2,7 @@
     include 'fake_data.php';
 ?>
 
-<div class="row cars">
+<div class="row cars" id="added_cars">
     <div class="car col-md-4 col-lg-4">
         <a href="add_new_car.php?"> + </a>
     </div>

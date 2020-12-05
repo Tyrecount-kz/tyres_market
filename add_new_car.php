@@ -2,7 +2,7 @@
 
 <?php
 
-    $user_id = $_SESSION["user"]["USER_ID"];
+    $user_id = $_SESSION["user"]["user_id"];
 
     if(isset($_POST['submit']))
     {
@@ -16,6 +16,7 @@
 
         $company = $_POST['company'];
         $model = $_POST['model'];
+        $description = $_POST['description'];
 
         $shell = $_POST['shell'];
         $year = $_POST['release_year'];
@@ -31,6 +32,7 @@
         include 'connect.php';
     
         // Add new car
+        // add car then add to market
         // $query = "INSERT INTO CARS (car_id, user_id, city) VALUES (default, '$user_id', '$city')";
         // echo $query;
         // send me car_id
@@ -50,8 +52,9 @@
         include 'add_new_photos.php';
         add_new_photos($car_id);
 
+
         // echo 'moves';
-        header("location: prediction_result.php?car_id=$car_id?query_id=5");
+        header("location: post_detail.php?car_id=$car_id");
     }
 
 ?>
@@ -571,12 +574,13 @@
                                     </div>
 
                                     <h3 class="h2">
-                                        Enter car's manufacturer and model
+                                        Enter car's info
                                     </h3>
 
                                     <input class="first_info" type="text" name="company" placeholder="Manufacturer" />
 
                                     <input class="first_info" type="text" name="model" placeholder="Model" />
+                                    <input class="first_info" type="text" name="description" placeholder="Description" />
 
                                     <ul class="list-inline pull-right">
                                         <li>
