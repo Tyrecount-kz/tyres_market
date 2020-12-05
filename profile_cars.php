@@ -3,31 +3,40 @@
 ?>
 
 <div class="row cars" id="added_cars">
-    <div class="car col-md-4 col-lg-4">
-        <a href="add_new_car.php?"> + </a>
-    </div>
 
-<?php
-    $index = 1;
+    <?php
+    $index = 0;
     foreach($cars as $car){
-        if( $index % 3 == 0 )
-            echo "<div class='row'>";
-?>
 
-    <div class="car col-md-4 col-lg-4">
-        <h3> <?php echo $car["car_id"]; ?> </h3>
-        <a href="prediction_result.php?car_id=<?php echo $car["car_id"]; ?>"> review </a>
-    </div>
-    
-<?php 
-    $index += 1;
-    if( $index % 3 == 0 )
-        echo "</div>";
-}
-if( $index % 3 != 0 ){
-    echo "</div>";
-}
-?>
+        echo '<div class="col-md-3">
+        <div class="card mb-4 shadow-sm">';
 
+        echo '<img class="card-img-top" src="';
+        echo "https://www.osdla.com/wp-content/uploads/2014/10/placeholder-1.png";
+            
+        echo '" alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text">';
+
+        echo '<a href="prediction_result.php?car_id='.$car["car_id"].'"> review '.$car["car_id"].'</a>';
+
+        echo'</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">';
+        echo '<button type="button" 
+            class="btn btn-sm btn-outline-secondary">
+            <a href="post_detail.php?post_id='.$car["car_id"].'">View</a></button>';
+        echo '<button type="button" 
+            class="btn btn-sm btn-outline-secondary"> 
+            <a href="prediction_result.php?post_id='.$car["car_id"].'">Edit</a></button>';
+            
+        echo '</div>
+            <small class="text-muted">9 mins</small>
+            </div>
+            </div>
+            </div>
+            </div>';
+    }
+    ?>
 
 </div>

@@ -4,8 +4,50 @@
     min-height: 500px;
 }
 
-.main_info {
+.main_info,
+.info {
     background: lightgreen;
+    text-align: center;
+}
+
+.main_info,
+.info_edit {
+    /* background: #000; */
+    padding: 20px;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.info {
+    width: 256px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.info_edit input[type="text"],
+textarea {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block !important;
+    width: 100%;
+    padding: 2px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid black !important;
+    background: transparent;
+    font: 16px Arial, Helvetica, sans-serif;
+    margin-bottom: 12px;
+    transition: all 0.25s;
+    /* height: 45px; */
+}
+
+.info_edit input[type="text"]:hover,
+textarea:hover,
+.main_info input[type="text"]:focus,
+textarea:focus {
+    border-bottom: 5px solid #238755 !important;
 }
 
 .wishlist {
@@ -29,4 +71,9 @@
     flex-flow: column-reverse;
     justify-items: center;
     align-self: center;
+}
+
+.cars a:hover {
+    color: white;
+    text-decoration: none;
 }

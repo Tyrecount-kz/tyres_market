@@ -2,13 +2,26 @@
 
 <?php 
     include 'fake_data.php';
+    include 'connect.php';
 
     //echo 'hi';
 
     $user_id = $_SESSION["user"]["user_id"];
     $email = $_SESSION["user"]["email"];
 
-    $predicted = false;
+    function get_data(){
+
+        //Bind Cursor     put -1
+        oci_bind_by_name($stid, ':cursor', $p_cursor, -1, OCI_B_CURSOR);
+
+        // Execute Statement
+        oci_execute($stid);
+        oci_execute($p_cursor, OCI_DEFAULT);
+
+        oci_fetch_all($p_cursor, $cursor, null, null, OCI_FETCHSTATEMENT_BY_ROW);
+        echo '<br>';
+        print_r($cursor[3]);
+    }
 
     if(isset($_POST['submit']))
     {
