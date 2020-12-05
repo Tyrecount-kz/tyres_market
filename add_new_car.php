@@ -29,6 +29,8 @@
         $city = $_POST['city'];
         $transmission = $_POST['transmission'];
 
+        $price = $_POST['price'];
+
         include 'connect.php';
     
         // Add new car
@@ -643,6 +645,10 @@
                                 <div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
                                     <h3>Now we will process the data</h3>
                                     <p>Be ready to know you car's price!</p>
+
+                                    
+                                    <input class="first_info" type="number" name="price" placeholder="Price" value="546"/>
+
                                     <input class="btn btn-warning submit_button" type="submit" name="submit"
                                                 value="I'm ready" />
                                 </div>

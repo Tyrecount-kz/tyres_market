@@ -54,7 +54,7 @@ textarea:focus {
     background: lightcoral;
 }
 
-#myChart {
+.chart {
     max-height: 400px;
     max-width: 800px;
     ;

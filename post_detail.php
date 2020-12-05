@@ -19,7 +19,16 @@
     $company = "T"; 
     $model = "T";
 
-    $in_wishlist = false;
+    include 'is_in_wishlist.php';
+
+    $in_wishlist = is_in_wishlist($user_id, $post_id);
+    if( $in_wishlist == 1 ){
+        $in_wishlist = true;
+    }
+    else{
+        $in_wishlist = false;
+    }
+    
     $views = 0;
     $interested = 0;
 
@@ -35,15 +44,9 @@
         array_push( $images, $placeholder_image );
     }
 
-    $characteristics = [
-        "a" => "A",
-        "b" => "B",
-        "c" => "C",
-        "d" => "D",
-        "e" => "E",
-        "f" => "F",
-        "g" => "G"
-    ];
+    include 'get_cars.php';
+    // $post_id = 1;
+    $characteristics = get_carDetailPost($post_id);
 
     // get all comments
     $comments = array();
@@ -107,7 +110,6 @@
 
 <body>
 
-
     <div class='signup-container'>
 
         <div id="cars" class="container right-container car_detail">
@@ -116,7 +118,7 @@
                 <?php require_once('go_back.php'); ?>
 
                 <h1>
-                    <?php echo $company.' '.$model; ?>
+                    <?php echo $characteristics["COMPANY"].' '.$characteristics["MODEL"]; ?>
                 </h1>
                 <!-- <br> -->
 
@@ -176,31 +178,35 @@
                     <ul class="characterists">
                         <?php 
                             foreach($characteristics as $key => $value) {
+                                if( $key == "COMPANY" ) continue;
+                                if( $key == "MODEL" ) continue;
+                                if( $key == "CAR_ID" ) continue;
+                                if( $key == "USER_ID" ) continue;
                                 echo '<li><a href="#" data-page="'.$value.'">'.$key.'</a></li>';
                             }
                         ?>
                     </ul>
-                    <div class="description">
+                    <!-- <div class="description">
                         <h3>Description</h3>
                         <p class="description_text">
                             <?php
-                                echo $description;
+                                // echo $description;
                             ?>
                         </p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-lg-6 right_part">
-                    <?php 
+                    <!-- <?php 
                         include 'photo_carousel.php';
 
                         start_carousel($images);
 
-                    ?>
+                    ?> -->
 
-                    <footer class='comments_section'>
+                    <!-- <footer class='comments_section'> -->
 
-                        <form action="<?php echo $link ?>" method="post" name="form" id="form">
+                        <!-- <form action="<?php echo $link ?>" method="post" name="form" id="form">
                             <div class='post_comment'>
                                 <label for='comment'>Comments</label>
                                 <div class="horizontal">
@@ -210,18 +216,18 @@
                                         value="Comment">
                                 </div>
                             </div>
-                        </form>
+                        </form> -->
 
-                        <div class="comments">
+                        <!-- <div class="comments">
                             <?php
                                 foreach($comments as $comment){
                             ?>
                             <div class="comment">
 
                                 <div class="comment_parent">
-                                    <?php echo '<a href="profile.php?user_id='.$comment->author_id.'">'.$comment->get_email().'</a>' ?>
+                                    <?php echo '<a href="profile.php?user_id='.$comment->author_id.'">'.$comment->get_email().'</a>' ?> -->
                                     <!-- <a href="profile.php"> USERNAME </a> -->
-                                    <p> <?php echo $comment->text ?> </p>
+                                    <!-- <p> <?php echo $comment->text ?> </p>
 
                                     <form action="<?php echo $link ?>" method="post" name="form" id="form">
                                         <div class='post_reply'>
@@ -243,9 +249,9 @@
                                                 foreach($comments as $reply){
                                             ?>
                                         <div class="reply">
-                                            <?php echo '<a href="profile.php?user_id='.$reply->author_id.'">'.$comment->get_email().'</a>' ?>
+                                            <?php echo '<a href="profile.php?user_id='.$reply->author_id.'">'.$comment->get_email().'</a>' ?> -->
                                             <!-- <a href="profile.php"> USERNAME </a> -->
-                                            <p> <?php echo $reply->text ?> </p>
+                                            <!-- <p> <?php echo $reply->text ?> </p>
                                         </div>
                                         <?php
                                                 }
@@ -259,8 +265,8 @@
                             <?php
                                 }
                             ?>
-                        </div>
-                    </footer>
+                        </div> -->
+                    <!-- </footer> -->
 
                 </div>
 

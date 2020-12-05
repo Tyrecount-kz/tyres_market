@@ -41,6 +41,6 @@
         
     }
 
-    // header("location: post_detail.php?post_id=".$post_id);
+    header("location: post_detail.php?post_id=".$post_id);
 
 ?>

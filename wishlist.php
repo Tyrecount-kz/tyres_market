@@ -1,39 +1,45 @@
 <?php
-    function get_wishlist($user_id){
-        include 'connect.php';
+    
+    $w_cars = array(
+    );
 
-        $query = '
-        declare 
-            userInfo information1.userInfoList;
-            a users.first_name%type;
-            b users.last_name%type;
-            c users.phone%type;
-        begin 
-            information1.getUserInfo(:a, userInfo);
-            :b := userInfo(1).first_name;
-            :c := userInfo(1).last_name;
-            :d := userInfo(1).phone;
-        end;';
+    $w_cars[0] = 
+    array(
+        'car_id' => 1,
+        'post_id' => 1,
+        'shell' => 1,
+        'year' => 2000,
+        'mileage' => 2000,
+        'rudder' => 1,
+        'engine_volume' => 3000,
+        'transmission' => 1,
+    );
 
-        $stid = oci_parse($conn, $query);
+    $details = array(
+        'shell' => array(),
+        'year' => array(),
+        'mileage' => array(),
+        'rudder' => array(),
+        'engine_volume' => array(),
+        'transmission' => array(),
+    );
+
+    foreach($details as $char => $detail){
+        // var_dump($char);
+        // var_dump($detail);
         
-        $user_data = array();
-
-        oci_bind_by_name($stid, ':a', $user_id);
-        oci_bind_by_name($stid, ':b', $user_data['first_name'], 150);
-        oci_bind_by_name($stid, ':c', $user_data['last_name'], 150);
-        oci_bind_by_name($stid, ':d', $user_data['phone'], 150);
-
-        oci_execute($stid);
-        
-        // var_dump($first_name);
-        var_dump($user_data);
-        return $user_data;
+        foreach($w_cars as $car){
+            // var_dump($car[$char]);
+            array_push($details[$char], array(
+                'id' => $car['post_id'], 
+                'value' => $car[$char])
+            ); 
+        }
     }
 
-    // $wishlist = get_wishlist();
+    // var_dump($details);
+
     // get_wishlist($user_id);
-    // $user_data = get_wishlist(1);
     // var_dump($user_data);
 ?>
 
@@ -43,39 +49,57 @@
             
             <?php 
                 $index = 0;
-                foreach($details as $detail){ 
+                foreach($details as $char => $detail){ 
             ?>
 
-            <div id="home<?php echo $index; ?>" class="tab-pane fade in active">
+            <?php 
+                if( $index == 0 ){
+            ?>
+                <div id="home<?php echo $index; ?>" class="tab-pane fade in active">
+            <?php
+                }
+                else{
+            ?>
+                <div id="home<?php echo $index; ?>" class="tab-pane fade">
+            <?php } ?>
+
                 <canvas class="chart" id="myChart<?php echo $index; ?>" width="800" height="400"></canvas>
-                <script>
-                    var ctx = document.getElementById('myChart').getContext('2d');
+                
+                <?php
+                    echo '<script>
+                    var ctx = document.getElementById("myChart'.$index.'").getContext("2d");';
 
-                    var queries = [];
-
+                    echo 'var cars = [';
+                    foreach($detail as $d){
+                            echo '{';
+                            echo 'x:'.$d["id"].',';
+                            echo 'y:'.$d["value"].',';
+                            echo 'r: 10';
+                            echo '},';
+                        }
+                    echo '];';
+                    
+                    echo "
                     function getQuery(a, b) {
-                        // console.log("query");
-                        // console.log(a);
-                        // console.log(b);
 
                         var index = b[0]['_index'];
                         console.log(queries[index]);
 
-                        var theUrl = 'http://localhost/tyres/prediction_result.php?queryID=' + index;
+                        var theUrl = 'http://localhost/tyres/post_detail.php?post_id=".$d["id"]."';
 
                         window.location.replace(theUrl);
 
                     }
 
-                    var car_info = "Toyota Camry";
+                    var car_info = 'Toyota Camra';
 
                     var myBubbleChart = new Chart(ctx, {
                         type: 'bubble',
                         data: {
                             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                             datasets: [{
-                                label: 'Detail: ' + <?php echo $detail; ?>,
-                                data: queries,
+                                label: 'Detail: ' + '".$char."',
+                                data: cars,
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
@@ -108,9 +132,17 @@
                         }
                     });
                 </script>
+                ";
+                ?>
+
             </div>
         
-            <?php } ?>
+            <?php 
+                
+                $index+=1;
+                } 
+                
+            ?>
 
         </div>
     </div>
@@ -118,9 +150,21 @@
 
         <h3 class="text-center">From The Blog</h3>
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">Mike</a></li>
-            <li><a data-toggle="tab" href="#home1">Chandler</a></li>
-            <li><a data-toggle="tab" href="#home2">Peter</a></li>
+            <?php
+                $index = 0;
+                foreach($details as $char => $detail){
+                    if( $index == 0 )
+                       echo '<li class="active">';
+                    else    
+                        echo '<li>';
+
+                    echo '<a data-toggle="tab" href="#home'.$index;
+                    echo '">'.$char;
+                    echo ' </a></li>';
+
+                    $index += 1;
+                }
+            ?>
         </ul>
 
     </div>

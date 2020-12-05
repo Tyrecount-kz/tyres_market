@@ -8,7 +8,7 @@
     if(isset($_POST['submit']))
     {
         // login();
-        login1($users);
+        login($users);
     }
 
     function login(){
@@ -29,11 +29,13 @@
             oci_execute($stid);
 
             $row = oci_fetch_array($stid, OCI_BOTH); 
-            //var_dump($row);
+            var_dump($row);
 
             
             if($email === $row['EMAIL'] && $password === $row['PASSWORD']) {
-                $_SESSION['user'] = $row;
+                $new_r["user_id"] = $row["USER_ID"];
+                $new_r["email"] = $row["EMAIL"];
+                $_SESSION['user'] = $new_r;
                 // echo $row['FIRST_NAME'];
                 
                 header('location: profile.php');
@@ -44,31 +46,31 @@
         }
     }
 
-    function login1($users){
-        $email = $_POST['email'];
+    // function login1($users){
+    //     $email = $_POST['email'];
         
-        // encrypt the password
-        $password = $_POST['password'];
-        // $password = md5($password);
+    //     // encrypt the password
+    //     $password = $_POST['password'];
+    //     // $password = md5($password);
 
-        $user_id = -1;
-        $user = null;
-        foreach($users as $key=>$value){
-            if( $value["email"] == $email && $value["password"] == $password ){
-                $user_id = $key;
-                $user = $value;
+    //     $user_id = -1;
+    //     $user = null;
+    //     foreach($users as $key=>$value){
+    //         if( $value["email"] == $email && $value["password"] == $password ){
+    //             $user_id = $key;
+    //             $user = $value;
             
-                $_SESSION['user'] = $user;
-                // echo $row['FIRST_NAME'];
+    //             $_SESSION['user'] = $user;
+    //             // echo $row['FIRST_NAME'];
                 
-                header('location: profile.php');
+    //             header('location: profile.php');
 
-                break;
-            }
-        }
+    //             break;
+    //         }
+    //     }
     
-        echo '<p id="failed">Login Failed !</p>';
-    }
+    //     echo '<p id="failed">Login Failed !</p>';
+    // }
     
 
 ?>
